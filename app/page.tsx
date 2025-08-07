@@ -763,7 +763,29 @@ export default function Home() {
                 @biqhtirrr
               </span>
             </div>
-            <p className="text-amber-600 text-sm">
+            {/* Powered By Section */}
+            <div className="pt-4 border-t border-rose-100">
+              <div className="flex flex-col md:flex-row justify-center items-center space-y-2 md:space-y-0 md:space-x-4">
+                <span className="text-amber-500 text-sm">Powered by</span>
+                <a
+                  href="https://lintasinovasiglobal.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center space-x-3 hover:opacity-80 transition-opacity duration-200"
+                >
+                  <img
+                    src="/logo-ligal.png"
+                    alt="PT. Lintas Inovasi Global"
+                    className="h-8 w-auto"
+                  />
+                  <span className="text-amber-600 text-sm font-semibold hover:text-rose-500 transition-colors">
+                    PT. Lintas Inovasi Global
+                  </span>
+                </a>
+              </div>
+            </div>
+
+            <p className="text-amber-600 text-sm mt-4">
               © 2024 @biqhtirrr. All rights reserved. | Professional TikTok
               Content Creator
             </p>
