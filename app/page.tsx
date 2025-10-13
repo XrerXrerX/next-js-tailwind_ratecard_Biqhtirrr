@@ -115,21 +115,21 @@ export default function Home() {
               className="bg-rose-100 text-rose-700 hover:bg-rose-200"
             >
               <Users className="w-4 h-4 mr-1" />
-              170.9K Followers
+              191,1K Followers
             </Badge>
             <Badge
               variant="secondary"
               className="bg-amber-100 text-amber-700 hover:bg-amber-200"
             >
               <Eye className="w-4 h-4 mr-1" />
-              23M Monthly Views
+              Million of Views
             </Badge>
             <Badge
               variant="secondary"
               className="bg-rose-100 text-rose-700 hover:bg-rose-200"
             >
               <TrendingUp className="w-4 h-4 mr-1" />
-              8.2% Engagement
+              294.87% Engagement
             </Badge>
           </div>
         </section>
@@ -147,11 +147,11 @@ export default function Home() {
                     Hi , saya Andien, seorang influencer di TikTok dengan lebih
                     dari{" "}
                     <span className="font-bold text-emerald-600">
-                      170.9K followers
+                      191,1K followers
                     </span>{" "}
                     dan total{" "}
                     <span className="font-bold text-emerald-600">
-                      7.6M Likes
+                      10,1M Likes
                     </span>
                     . Saya siap untuk bekerja sama dengan brand dan kreator lain
                     untuk membuat konten yang kreatif dan menarik! 🚀
@@ -182,16 +182,17 @@ export default function Home() {
                 <CardContent className="p-6">
                   <div className="space-y-6">
                     <div>
+                      <h1 className="font-bold text-lg text-rose-600 border-b-2 border-yellow-500 my-2  pb-2 text-center">Gender</h1>
                       <div className="flex justify-between mb-2">
                         <span className="text-sm font-medium text-amber-700">
                           Female
                         </span>
-                        <span className="text-sm text-amber-600">66%</span>
+                        <span className="text-sm text-amber-600">72%</span>
                       </div>
                       <div className="w-full bg-rose-100 rounded-full h-2">
                         <div
                           className="bg-gradient-to-r from-rose-400 to-rose-500 h-2 rounded-full"
-                          style={{ width: "66%" }}
+                          style={{ width: "72%" }}
                         ></div>
                       </div>
                     </div>
@@ -200,16 +201,32 @@ export default function Home() {
                         <span className="text-sm font-medium text-amber-700">
                           male
                         </span>
-                        <span className="text-sm text-amber-600">30%</span>
+                        <span className="text-sm text-amber-600">21%</span>
                       </div>
                       <div className="w-full bg-rose-100 rounded-full h-2">
                         <div
                           className="bg-gradient-to-r from-rose-400 to-rose-500 h-2 rounded-full"
-                          style={{ width: "30%" }}
+                          style={{ width: "21%" }}
+                        ></div>
+                      </div>
+                    </div>
+                     <div>
+                      <div className="flex justify-between mb-2">
+                        <span className="text-sm font-medium text-amber-700">
+                          Others
+                        </span>
+                        <span className="text-sm text-amber-600">7%</span>
+                      </div>
+                      <div className="w-full bg-rose-100 rounded-full h-2">
+                        <div
+                          className="bg-gradient-to-r from-rose-400 to-rose-500 h-2 rounded-full"
+                          style={{ width: "7%" }}
                         ></div>
                       </div>
                     </div>
                     <div>
+                        <h1 className="font-bold text-lg text-amber-600 border-b-2 border-yellow-500 my-2 pb-2 text-center">Age</h1>
+
                       <div className="flex justify-between mb-2">
                         <span className="text-sm font-medium text-amber-700">
                           Age 18-24
@@ -251,9 +268,40 @@ export default function Home() {
                         ></div>
                       </div>
                     </div>
+
+                    <div>
+                      <h1 className="font-bold text-lg text-green-600 border-b-2 border-yellow-500 my-2 pb-2 text-center">Location</h1>
+
+                      <div className="flex justify-between mb-2">
+                        <span className="text-sm font-medium text-green-700">
+                          Indonesia
+                        </span>
+                        <span className="text-sm text-green-600">95%</span>
+                      </div>
+                      <div className="w-full bg-green-100 rounded-full h-2">
+                        <div
+                          className="bg-gradient-to-r from-green-400 to-green-500 h-2 rounded-full"
+                          style={{ width: "95%" }}
+                        ></div>
+                      </div>
+                    </div>
+                    <div>
+                      <div className="flex justify-between mb-2">
+                        <span className="text-sm font-medium text-green-700">
+                          Others
+                        </span>
+                        <span className="text-sm text-green-600">5%</span>
+                      </div>
+                      <div className="w-full bg-green-100 rounded-full h-2">
+                        <div
+                          className="bg-gradient-to-r from-green-400 to-green-500 h-2 rounded-full"
+                          style={{ width: "5%" }}
+                        ></div>
+                      </div>
+                    </div>
                     {/* <div>
                       <div className="flex justify-between mb-2">
-                        <span className="text-sm font-medium text-amber-700">
+                        <span className="text-sm font-medium text-green-700">
                           Indonesia
                         </span>
                         <span className="text-sm text-amber-600">77%</span>
@@ -440,18 +488,7 @@ export default function Home() {
                       <div className="w-2 h-2 bg-rose-400 rounded-full mr-3"></div>
                       Code boost free 80 days included
                     </li>
-                    {/* <li className="flex items-center text-purple-700">
-                      <div className="w-2 h-2 bg-purple-400 rounded-full mr-3"></div>
-                      Detailed analytics report
-                    </li> */}
-                    {/* <li className="flex items-center text-purple-700">
-                      <div className="w-2 h-2 bg-purple-400 rounded-full mr-3"></div>
-                      Content ownership rights
-                    </li> */}
-                    {/* <li className="flex items-center text-purple-700">
-                      <div className="w-2 h-2 bg-purple-400 rounded-full mr-3"></div>
-                      1 Instagram Story bonus
-                    </li> */}
+                 
                   </ul>
 
                   <Button
@@ -534,10 +571,10 @@ export default function Home() {
                 </CardHeader>
                 <CardContent>
                   <img
-                    src="/overview.png"
+                    src="/13-okt/overview2.png"
                     alt="Analytics Dashboard"
                     className="w-full h-64 object-cover rounded-lg mb-4 cursor-pointer hover:opacity-80 transition-opacity duration-300"
-                    onClick={() => openModal("/overview.png")}
+                    onClick={() => openModal("/13-okt/overview2.png")}
                   />
                   <div className="grid grid-cols-2 gap-4">
                     <div className="text-center p-4 bg-rose-50 rounded-lg">
@@ -568,15 +605,15 @@ export default function Home() {
                 </CardHeader>
                 <CardContent>
                   <img
-                    src="/audience.png"
+                    src="/13-okt/viewer2.png"
                     alt="Audience Demographics"
                     className="w-full h-64 object-cover rounded-lg mb-4 cursor-pointer hover:opacity-80 transition-opacity duration-300"
-                    onClick={() => openModal("/audience.png")}
+                    onClick={() => openModal("/13-okt/viewer2.png")}
                   />
                   <div className="grid grid-cols-2 gap-4">
                     <div className="text-center p-4 bg-rose-50 rounded-lg">
                       <div className="text-2xl font-bold text-rose-600">
-                        66%
+                        72%
                       </div>
                       <div className="text-sm text-amber-600">
                         Female Audience
