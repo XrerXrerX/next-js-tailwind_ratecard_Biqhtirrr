@@ -578,16 +578,16 @@ export default function Home() {
                   />
                   <div className="grid grid-cols-2 gap-4">
                     <div className="text-center p-4 bg-rose-50 rounded-lg">
-                      <div className="text-2xl font-bold text-rose-600">
-                        23M
+                      <div className="text-xl font-bold text-rose-600">
+                        1M++
                       </div>
                       <div className="text-sm text-amber-600">
-                        Monthly Views
+                        Monthly Average
                       </div>
                     </div>
                     <div className="text-center p-4 bg-amber-50 rounded-lg">
                       <div className="text-2xl font-bold text-amber-600">
-                        1.2M
+                        500K++
                       </div>
                       <div className="text-sm text-amber-600">
                         Monthly Likes
