@@ -78,7 +78,7 @@ export default function Home() {
 
       <main className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         {/* Hero Section */}
-        <section className="text-center mb-16">
+        <section className="text-center mb-4">
           <div className="relative inline-block mb-6">
             <div className="w-32 h-32 mx-auto rounded-full bg-gradient-to-r from-rose-400 to-amber-400 p-1 cursor-pointer hover:scale-105 transition-transform duration-300">
               <div className="w-full h-full rounded-full bg-white flex items-center justify-center">
@@ -109,13 +109,14 @@ export default function Home() {
           <p className="text-xl text-amber-600 mb-6 max-w-2xl mx-auto">
             TikTok Content Creator & Lifestyle Influencer
           </p>
+        
           <div className="flex flex-wrap justify-center gap-4 mb-8">
             <Badge
               variant="secondary"
               className="bg-rose-100 text-rose-700 hover:bg-rose-200"
             >
               <Users className="w-4 h-4 mr-1" />
-              191,1K Followers
+              217.4K Followers
             </Badge>
             <Badge
               variant="secondary"
@@ -129,9 +130,12 @@ export default function Home() {
               className="bg-rose-100 text-rose-700 hover:bg-rose-200"
             >
               <TrendingUp className="w-4 h-4 mr-1" />
-              294.87% Engagement
+              more Engagement
             </Badge>
           </div>
+            <p className="text-lg font-semibold italic underline text-amber-800 text-right">
+            update 2 january 2026 (recap 28 days ago)
+          </p>
         </section>
 
         {/* Profile Section */}
@@ -142,35 +146,41 @@ export default function Home() {
                 <CardHeader className="bg-gradient-to-r from-rose-100 to-amber-100">
                   <CardTitle className="text-amber-800">About Me</CardTitle>
                 </CardHeader>
-                <CardContent className="p-6">
-                  <p className="text-amber-700 leading-relaxed mb-6">
-                    Hi , saya Andien, seorang influencer di TikTok dengan lebih
-                    dari{" "}
-                    <span className="font-bold text-emerald-600">
-                      191,1K followers
-                    </span>{" "}
-                    dan total{" "}
-                    <span className="font-bold text-emerald-600">
-                      10,1M Likes
-                    </span>
-                    . Saya siap untuk bekerja sama dengan brand dan kreator lain
-                    untuk membuat konten yang kreatif dan menarik! 🚀
-                  </p>
-                  <div className="space-y-4">
-                    {/* <div className="flex items-center text-amber-600">
-                      <Calendar className="w-5 h-5 mr-3 text-rose-500" />
-                      <span>Content Creator since 2022</span>
-                    </div> */}
-                    <div className="flex items-center text-amber-600">
-                      <Star className="w-5 h-5 mr-3 text-rose-500" />
-                      <span>Specialized in Beauty & Lifestyle</span>
-                    </div>
-                    <div className="flex items-center text-amber-600">
-                      <TrendingUp className="w-5 h-5 mr-3 text-rose-500" />
-                      <span>Average 100K views per video</span>
-                    </div>
-                  </div>
-                </CardContent>
+<CardContent className="p-6">
+  <p className="text-amber-700 leading-relaxed mb-6">
+    Hi, I’m <span className="font-semibold">Andien</span> — a TikTok content creator
+    with over{" "}
+    <span className="font-bold text-emerald-600">217.4K followers</span>{" "}
+    and{" "}
+    <span className="font-bold text-emerald-600">11.6M total likes</span>.
+    I help brands build stronger visibility, credibility, and audience trust
+    through authentic, high-engagement content.
+  </p>
+
+  <p className="text-amber-700 leading-relaxed mb-6">
+    By collaborating with me, your brand doesn’t just get exposure, it gains
+    meaningful connections with a loyal audience that actively engages,
+    remembers, and converts.
+  </p>
+
+  <div className="space-y-4">
+    <div className="flex items-center text-amber-600">
+      <Star className="w-5 h-5 mr-3 text-rose-500" />
+      <span>Focused on Beauty & Lifestyle storytelling that feels natural and trusted</span>
+    </div>
+
+    <div className="flex items-center text-amber-600">
+      <TrendingUp className="w-5 h-5 mr-3 text-rose-500" />
+      <span>Consistent performance up to ~100K average views per video</span>
+    </div>
+
+    <div className="flex items-center text-amber-600">
+      <TrendingUp className="w-5 h-5 mr-3 text-rose-500" />
+      <span>Audience-driven content designed to increase brand recall and value</span>
+    </div>
+  </div>
+</CardContent>
+
               </Card>
 
               <Card className="border-rose-200 shadow-lg">
@@ -201,7 +211,7 @@ export default function Home() {
                         <span className="text-sm font-medium text-amber-700">
                           male
                         </span>
-                        <span className="text-sm text-amber-600">21%</span>
+                        <span className="text-sm text-amber-600">15%</span>
                       </div>
                       <div className="w-full bg-rose-100 rounded-full h-2">
                         <div
@@ -215,7 +225,7 @@ export default function Home() {
                         <span className="text-sm font-medium text-amber-700">
                           Others
                         </span>
-                        <span className="text-sm text-amber-600">7%</span>
+                        <span className="text-sm text-amber-600">13%</span>
                       </div>
                       <div className="w-full bg-rose-100 rounded-full h-2">
                         <div
@@ -231,7 +241,7 @@ export default function Home() {
                         <span className="text-sm font-medium text-amber-700">
                           Age 18-24
                         </span>
-                        <span className="text-sm text-amber-600">45%</span>
+                        <span className="text-sm text-amber-600">44.9%</span>
                       </div>
                       <div className="w-full bg-amber-100 rounded-full h-2">
                         <div
@@ -245,7 +255,7 @@ export default function Home() {
                         <span className="text-sm font-medium text-amber-700">
                           Age 25-34
                         </span>
-                        <span className="text-sm text-amber-600">39%</span>
+                        <span className="text-sm text-amber-600">39.7%</span>
                       </div>
                       <div className="w-full bg-amber-100 rounded-full h-2">
                         <div
@@ -259,7 +269,7 @@ export default function Home() {
                         <span className="text-sm font-medium text-amber-700">
                           Age 36-55+
                         </span>
-                        <span className="text-sm text-amber-600">15%</span>
+                        <span className="text-sm text-amber-600">15.4%</span>
                       </div>
                       <div className="w-full bg-amber-100 rounded-full h-2">
                         <div
@@ -276,7 +286,7 @@ export default function Home() {
                         <span className="text-sm font-medium text-green-700">
                           Indonesia
                         </span>
-                        <span className="text-sm text-green-600">95%</span>
+                        <span className="text-sm text-green-600">96.9%</span>
                       </div>
                       <div className="w-full bg-green-100 rounded-full h-2">
                         <div
@@ -290,7 +300,7 @@ export default function Home() {
                         <span className="text-sm font-medium text-green-700">
                           Others
                         </span>
-                        <span className="text-sm text-green-600">5%</span>
+                        <span className="text-sm text-green-600">3.1%</span>
                       </div>
                       <div className="w-full bg-green-100 rounded-full h-2">
                         <div
@@ -344,7 +354,7 @@ export default function Home() {
                 <CardContent className="p-8">
                   <div className="text-center mb-8">
                     <div className="text-4xl font-bold text-amber-800 mb-2">
-                      Rp 2.250.000
+                      Rp 2.650.000
                     </div>
                     <div className="text-amber-600">per video content</div>
                   </div>
@@ -401,7 +411,7 @@ export default function Home() {
                 <CardContent className="p-8">
                   <div className="text-center mb-8">
                     <div className="text-4xl font-bold text-amber-800 mb-2">
-                      Rp 6.200.000
+                      Rp 7.400.000
                     </div>
                     <div className="text-amber-600">3 video contents</div>
                     <div className="text-sm text-rose-600 font-medium mt-1">
@@ -424,7 +434,7 @@ export default function Home() {
                     </li>
                     <li className="flex items-center text-amber-700">
                       <div className="w-2 h-2 bg-rose-400 rounded-full mr-3"></div>
-                      Code boost free 80 days included
+                      Code boost free 90 days included
                     </li>
                     {/* <li className="flex items-center text-amber-700">
                       <div className="w-2 h-2 bg-amber-400 rounded-full mr-3"></div>
@@ -463,7 +473,7 @@ export default function Home() {
                 <CardContent className="p-8">
                   <div className="text-center mb-8">
                     <div className="text-4xl font-bold text-purple-800 mb-2">
-                      Rp 9.500.000
+                      Rp 11.500.000
                     </div>
                     <div className="text-purple-600">5 video contents</div>
                     <div className="text-sm text-rose-600 font-medium mt-1">
@@ -486,7 +496,7 @@ export default function Home() {
                     </li>
                     <li className="flex items-center text-purple-700">
                       <div className="w-2 h-2 bg-rose-400 rounded-full mr-3"></div>
-                      Code boost free 80 days included
+                      Code boost free 90 days included
                     </li>
                  
                   </ul>
@@ -571,16 +581,18 @@ export default function Home() {
                 </CardHeader>
                 <CardContent>
                   <img
-                    src="/13-okt/overview2.png"
+                    src="/2-jan/ov_2jan.png"
                     alt="Analytics Dashboard"
                     className="w-full h-64 object-cover rounded-lg mb-4 cursor-pointer hover:opacity-80 transition-opacity duration-300"
-                    onClick={() => openModal("/13-okt/overview2.png")}
+                    onClick={() => openModal("/2-jan/ov_2jan.png")}
                   />
                   <div className="grid grid-cols-2 gap-4">
                     <div className="text-center p-4 bg-rose-50 rounded-lg">
                       <div className="text-xl font-bold text-rose-600">
                         1M++
                       </div>
+
+
                       <div className="text-sm text-amber-600">
                         Monthly Average
                       </div>
@@ -605,10 +617,10 @@ export default function Home() {
                 </CardHeader>
                 <CardContent>
                   <img
-                    src="/13-okt/viewer2.png"
+                    src="/2-jan/vi_2jan.png"
                     alt="Audience Demographics"
                     className="w-full h-64 object-cover rounded-lg mb-4 cursor-pointer hover:opacity-80 transition-opacity duration-300"
-                    onClick={() => openModal("/13-okt/viewer2.png")}
+                    onClick={() => openModal("/2-jan/vi_2jan.png")}
                   />
                   <div className="grid grid-cols-2 gap-4">
                     <div className="text-center p-4 bg-rose-50 rounded-lg">
