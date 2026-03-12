@@ -1,0 +1,128 @@
+{
+  "profile": {
+    "handle": "@biqhtirrr",
+    "name": "Andien",
+    "tagline": "TikTok Content Creator & Lifestyle Influencer",
+    "followers": "217.4K",
+    "tiktokUrl": "https://www.tiktok.com/@biqhtirrr?is_from_webapp=1&sender_device=pc",
+    "updateDate": "update 2 january 2026 (recap 28 days ago)",
+    "aboutText1": "Hi, I'm Andien — a TikTok content creator with over 217.4K followers and 11.6M total likes. I help brands build stronger visibility, credibility, and audience trust through authentic, high-engagement content.",
+    "aboutText2": "By collaborating with me, your brand doesn't just get exposure, it gains meaningful connections with a loyal audience that actively engages, remembers, and converts.",
+    "highlights": [
+      "Focused on Beauty & Lifestyle storytelling that feels natural and trusted",
+      "Consistent performance up to ~100K average views per video",
+      "Audience-driven content designed to increase brand recall and value"
+    ]
+  },
+  "demographics": {
+    "gender": {
+      "female": 72,
+      "male": 15,
+      "others": 13
+    },
+    "age": {
+      "18-24": 44.9,
+      "25-34": 39.7,
+      "36-55+": 15.4
+    },
+    "location": {
+      "indonesia": 96.9,
+      "others": 3.1
+    }
+  },
+  "packages": [
+    {
+      "id": "single",
+      "name": "Single Video",
+      "subtitle": "Perfect for your brand 🚀",
+      "price": "Rp 2.650.000",
+      "priceNote": "per video content",
+      "save": "",
+      "color": "rose",
+      "popular": false,
+      "features": [
+        "1 TikTok video (30-60 seconds)",
+        "Professional editing & effects",
+        "2 revisions included",
+        "Code boost free 30 days included"
+      ]
+    },
+    {
+      "id": "triple",
+      "name": "Triple Video Package",
+      "subtitle": "Best value for campaign series",
+      "price": "Rp 7.400.000",
+      "priceNote": "3 video contents",
+      "save": "Save Rp 550.000!",
+      "color": "amber",
+      "popular": true,
+      "features": [
+        "3 TikTok videos (30-60 seconds each)",
+        "Professional editing & effects",
+        "3 revisions per video included",
+        "Code boost free 90 days included"
+      ]
+    },
+    {
+      "id": "fifth",
+      "name": "Fifth Video Package",
+      "subtitle": "Best value for raising your brand awareness",
+      "price": "Rp 11.500.000",
+      "priceNote": "5 video contents",
+      "save": "Save Rp 1.750.000!",
+      "color": "purple",
+      "popular": false,
+      "features": [
+        "5 TikTok videos (30-60 seconds each)",
+        "Professional editing & effects",
+        "4 revisions per video included",
+        "Code boost free 90 days included"
+      ]
+    },
+    {
+      "id": "custom",
+      "name": "Custom Video Package",
+      "subtitle": "tell me more what you need",
+      "price": "Chat Us Now !",
+      "priceNote": "depends on your needs",
+      "save": "",
+      "color": "sky",
+      "popular": false,
+      "features": []
+    }
+  ],
+  "analytics": {
+    "overviewImage": "/2-jan/ov_2jan.png",
+    "audienceImage": "/2-jan/vi_2jan.png",
+    "monthlyViews": "1M++",
+    "monthlyLikes": "500K++",
+    "femaleAudience": "72%",
+    "primaryAge": "18-24",
+    "topVideos": [
+      {
+        "image": "/11m.jpg",
+        "title": "Most View Content",
+        "views": "11M+ Views",
+        "likes": "541K Likes"
+      },
+      {
+        "image": "/48m.jpg",
+        "title": "second Most View Content",
+        "views": "4.8M+ Views",
+        "likes": "174K Likes"
+      },
+      {
+        "image": "/47m.jpg",
+        "title": "third Most View Content",
+        "views": "4.7M+ Views",
+        "likes": "271K Likes"
+      }
+    ]
+  },
+  "contact": {
+    "email": "dikihidayat.dh@gmail.com",
+    "whatsapp": "+6289612716535",
+    "instagramUrl": "https://www.instagram.com/andienads/",
+    "tiktokEmbedId": "biqhtirrr"
+  }
+}
