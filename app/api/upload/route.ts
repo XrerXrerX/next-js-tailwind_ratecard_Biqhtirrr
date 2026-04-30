@@ -23,9 +23,7 @@ export async function POST(request: Request) {
     }
 
     // Sanitize filename
-    const originalName = file.name.replace(/[^a-zA-Z0-9._-]/g, "_");
-    const timestamp = Date.now();
-    const filename = `${timestamp}_${originalName}`;
+    const filename = file.name.replace(/[^a-zA-Z0-9._-]/g, "_");
 
     const uploadsDir = path.join(process.cwd(), "public", "uploads");
     if (!existsSync(uploadsDir)) {
