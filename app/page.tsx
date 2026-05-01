@@ -76,7 +76,7 @@ const defaultContent: SiteContent = {
     tiktokUrl: "https://www.tiktok.com/@biqhtirrr?is_from_webapp=1&sender_device=pc",
     updateDate: "update 5 April 2026 (recap 28 days ago)",
     aboutText1:
-      "Hi, I'm Andien — a TikTok content creator with over 222.1K followers and 11.6M total likes. I help brands build stronger visibility, credibility, and audience trust through authentic, high-engagement content.",
+      "Hi, I'm Andien — a TikTok content creator with over 222,1K followers and 12,5M total likes. I help brands build stronger visibility, credibility, and audience trust through authentic, high-engagement content.",
     aboutText2:
       "By collaborating with me, your brand doesn't just get exposure, it gains meaningful connections with a loyal audience that actively engages, remembers, and converts.",
     highlights: [
@@ -677,6 +677,111 @@ function StatBox({
   );
 }
 
+// ─── About Me text — bold + spotlight helpers ─────────────────────────────────
+
+function renderAboutText(text: string, creatorName: string): React.ReactNode[] {
+  // Pattern 1: creator name (e.g. "Andien")
+  const nameRe = new RegExp(`(${creatorName})`, "gi");
+  // Pattern 2: "creator with over X followers and Y total likes"
+  const statsRe =
+    /(creator with over [\d.,]+[KkMmBb]*\+?\s+followers and [\d.,]+[KkMmBb]*\+?\s+total likes)/i;
+
+  const nameStyle: React.CSSProperties = {
+    fontWeight: 800,
+    color: T.primaryDark,
+    background: "rgba(236,72,153,0.10)",
+    borderRadius: 5,
+    padding: "1px 5px",
+    display: "inline",
+  };
+
+  const statsStyle: React.CSSProperties = {
+    fontWeight: 700,
+    color: T.primaryDark,
+    background:
+      "linear-gradient(120deg, transparent 0%, rgba(249,168,212,0.38) 15%, rgba(249,168,212,0.38) 85%, transparent 100%)",
+    padding: "1px 2px",
+    borderRadius: 3,
+    display: "inline",
+  };
+
+  // First split by stats pattern, then by name within plain segments
+  const result: React.ReactNode[] = [];
+  const byStats = text.split(statsRe);
+  byStats.forEach((chunk, si) => {
+    if (statsRe.test(chunk)) {
+      result.push(
+        <mark key={`stat-${si}`} style={statsStyle}>
+          {chunk}
+        </mark>
+      );
+      return;
+    }
+    // Split remaining chunk by creator name
+    const byName = chunk.split(nameRe);
+    byName.forEach((seg, ni) => {
+      if (seg.toLowerCase() === creatorName.toLowerCase()) {
+        result.push(
+          <strong key={`name-${si}-${ni}`} style={nameStyle}>
+            {seg}
+          </strong>
+        );
+      } else {
+        result.push(<span key={`plain-${si}-${ni}`}>{seg}</span>);
+      }
+    });
+  });
+  return result;
+}
+
+// Icon colours that rotate across the three bullets
+const BULLET_COLORS = [T.primary, T.accentDark, "#8b5cf6"];
+
+function HighlightBullet({ text, index }: { text: string; index: number }) {
+  const color = BULLET_COLORS[index % BULLET_COLORS.length];
+  return (
+    <div
+      style={{
+        display: "flex",
+        gap: 14,
+        alignItems: "flex-start",
+        padding: "12px 14px",
+        borderRadius: 12,
+        background:
+          "linear-gradient(135deg, rgba(252,231,243,0.55), rgba(254,243,247,0.9))",
+        border: "1px solid rgba(249,168,212,0.25)",
+        borderLeft: `3px solid ${color}`,
+      }}
+    >
+      {/* Icon container */}
+      <div
+        style={{
+          width: 30,
+          height: 30,
+          borderRadius: 9,
+          background: `linear-gradient(135deg, ${color}, ${color}bb)`,
+          display: "grid",
+          placeItems: "center",
+          flexShrink: 0,
+          boxShadow: `0 4px 10px ${color}40`,
+        }}
+      >
+        <TrendingUp size={14} style={{ color: "#fff" }} />
+      </div>
+      <span
+        style={{
+          color: T.text,
+          fontSize: 14,
+          lineHeight: 1.65,
+          paddingTop: 5,
+        }}
+      >
+        {text}
+      </span>
+    </div>
+  );
+}
+
 // ─── Main page ────────────────────────────────────────────────────────────────
 
 export default function Home() {
@@ -1012,36 +1117,52 @@ export default function Home() {
                     </h3>
                   </div>
                   <div style={{ padding: 24 }}>
-                    <p style={{ color: T.textMuted, lineHeight: 1.7, marginTop: 0 }}>
-                      {content.profile.aboutText1}
+                    <p style={{ color: T.textMuted, lineHeight: 1.8, marginTop: 0, fontSize: 15 }}>
+                      {renderAboutText(content.profile.aboutText1, content.profile.name)}
                     </p>
-                    <p style={{ color: T.textMuted, lineHeight: 1.7 }}>
+                    <p style={{ color: T.textMuted, lineHeight: 1.8, fontSize: 15 }}>
                       {content.profile.aboutText2}
                     </p>
+
+                    {/* Spotlight divider */}
                     <div
                       style={{
                         display: "flex",
-                        flexDirection: "column",
-                        gap: 14,
-                        marginTop: 24,
+                        alignItems: "center",
+                        gap: 10,
+                        margin: "20px 0 16px",
                       }}
                     >
+                      <div
+                        style={{
+                          height: 1,
+                          flex: 1,
+                          background: `linear-gradient(90deg, transparent, ${T.accent})`,
+                        }}
+                      />
+                      <span
+                        style={{
+                          fontSize: 11,
+                          fontWeight: 700,
+                          letterSpacing: "0.1em",
+                          color: T.primary,
+                          textTransform: "uppercase",
+                        }}
+                      >
+                        Highlights
+                      </span>
+                      <div
+                        style={{
+                          height: 1,
+                          flex: 1,
+                          background: `linear-gradient(90deg, ${T.accent}, transparent)`,
+                        }}
+                      />
+                    </div>
+
+                    <div style={{ display: "flex", flexDirection: "column", gap: 10 }}>
                       {content.profile.highlights.map((h, i) => (
-                        <div
-                          key={i}
-                          style={{
-                            display: "flex",
-                            gap: 12,
-                            alignItems: "flex-start",
-                            color: T.textMuted,
-                          }}
-                        >
-                          <TrendingUp
-                            size={20}
-                            style={{ color: T.primary, flexShrink: 0, marginTop: 2 }}
-                          />
-                          <span>{h}</span>
-                        </div>
+                        <HighlightBullet key={i} text={h} index={i} />
                       ))}
                     </div>
                   </div>
