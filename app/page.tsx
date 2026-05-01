@@ -9,16 +9,16 @@ import {
   Eye,
   TrendingUp,
   Play,
-  Calendar,
   Star,
   Instagram,
   Mail,
   MessageCircle,
   Check,
+  X,
+  Calendar,
 } from "lucide-react";
-import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
+
+// ─── Types ───────────────────────────────────────────────────────────────────
 
 type SiteContent = {
   profile: {
@@ -65,16 +65,18 @@ type SiteContent = {
   };
 };
 
+// ─── Default content ──────────────────────────────────────────────────────────
+
 const defaultContent: SiteContent = {
   profile: {
     handle: "@biqhtirrr",
     name: "Andien",
     tagline: "TikTok Content Creator & Lifestyle Influencer",
-    followers: "217.4K",
+    followers: "222.1K",
     tiktokUrl: "https://www.tiktok.com/@biqhtirrr?is_from_webapp=1&sender_device=pc",
-    updateDate: "update 2 january 2026 (recap 28 days ago)",
+    updateDate: "update 5 April 2026 (recap 28 days ago)",
     aboutText1:
-      "Hi, I'm Andien — a TikTok content creator with over 217.4K followers and 11.6M total likes. I help brands build stronger visibility, credibility, and audience trust through authentic, high-engagement content.",
+      "Hi, I'm Andien — a TikTok content creator with over 222.1K followers and 11.6M total likes. I help brands build stronger visibility, credibility, and audience trust through authentic, high-engagement content.",
     aboutText2:
       "By collaborating with me, your brand doesn't just get exposure, it gains meaningful connections with a loyal audience that actively engages, remembers, and converts.",
     highlights: [
@@ -84,9 +86,9 @@ const defaultContent: SiteContent = {
     ],
   },
   demographics: {
-    gender: { female: 72, male: 15, others: 13 },
-    age: { "18-24": 44.9, "25-34": 39.7, "36-55+": 15.4 },
-    location: { indonesia: 96.9, others: 3.1 },
+    gender: { female: 82, male: 16, others: 2 },
+    age: { "18-24": 43.9, "25-34": 40.9, "36-55+": 17.2 },
+    location: { indonesia: 95.6, others: 4.6 },
   },
   packages: [
     {
@@ -99,7 +101,7 @@ const defaultContent: SiteContent = {
       color: "rose",
       popular: false,
       features: [
-        "1 TikTok video (30-60 seconds)",
+        "1 TikTok video (30–60 seconds)",
         "Professional editing & effects",
         "2 revisions included",
         "Code boost free 30 days included",
@@ -115,7 +117,7 @@ const defaultContent: SiteContent = {
       color: "amber",
       popular: true,
       features: [
-        "3 TikTok videos (30-60 seconds each)",
+        "3 TikTok videos (30–60 seconds each)",
         "Professional editing & effects",
         "3 revisions per video included",
         "Code boost free 90 days included",
@@ -131,7 +133,7 @@ const defaultContent: SiteContent = {
       color: "purple",
       popular: false,
       features: [
-        "5 TikTok videos (30-60 seconds each)",
+        "5 TikTok videos (30–60 seconds each)",
         "Professional editing & effects",
         "4 revisions per video included",
         "Code boost free 90 days included",
@@ -141,7 +143,7 @@ const defaultContent: SiteContent = {
       id: "custom",
       name: "Custom Video Package",
       subtitle: "tell me more what you need",
-      price: "Chat Us Now !",
+      price: "Chat Us Now!",
       priceNote: "depends on your needs",
       save: "",
       color: "sky",
@@ -154,12 +156,12 @@ const defaultContent: SiteContent = {
     audienceImage: "/2-jan/vi_2jan.png",
     monthlyViews: "1M++",
     monthlyLikes: "500K++",
-    femaleAudience: "72%",
-    primaryAge: "18-24",
+    femaleAudience: "82%",
+    primaryAge: "18–24",
     topVideos: [
-      { image: "/11m.jpg", title: "Most View Content", views: "11M+ Views", likes: "541K Likes" },
-      { image: "/48m.jpg", title: "second Most View Content", views: "4.8M+ Views", likes: "174K Likes" },
-      { image: "/47m.jpg", title: "third Most View Content", views: "4.7M+ Views", likes: "271K Likes" },
+      { image: "/11m.jpg", title: "Most Viewed Content", views: "11M+ Views", likes: "541K Likes" },
+      { image: "/48m.jpg", title: "Second Most Viewed", views: "4.8M+ Views", likes: "174K Likes" },
+      { image: "/47m.jpg", title: "Third Most Viewed", views: "4.7M+ Views", likes: "271K Likes" },
     ],
   },
   contact: {
@@ -170,60 +172,533 @@ const defaultContent: SiteContent = {
   },
 };
 
-// Color map for package cards (Tailwind classes must be static)
-const pkgColors: Record<string, {
-  header: string;
-  btn: string;
-  border: string;
-  price: string;
-  dot: string;
-  feat: string;
-}> = {
-  rose: {
-    header: "bg-gradient-to-r from-rose-400 to-rose-500",
-    btn: "bg-gradient-to-r from-rose-400 to-rose-500 hover:from-rose-500 hover:to-rose-600",
-    border: "border-rose-200",
-    price: "text-amber-800",
-    dot: "bg-rose-400",
-    feat: "text-amber-700",
-  },
-  amber: {
-    header: "bg-gradient-to-r from-amber-400 to-amber-500",
-    btn: "bg-gradient-to-r from-amber-400 to-amber-500 hover:from-amber-500 hover:to-amber-600",
-    border: "border-amber-300",
-    price: "text-amber-800",
-    dot: "bg-amber-400",
-    feat: "text-amber-700",
-  },
-  purple: {
-    header: "bg-gradient-to-r from-purple-400 to-purple-500",
-    btn: "bg-gradient-to-r from-purple-400 to-purple-500 hover:from-purple-500 hover:to-purple-600",
-    border: "border-purple-300",
-    price: "text-purple-800",
-    dot: "bg-purple-400",
-    feat: "text-purple-700",
-  },
-  sky: {
-    header: "bg-gradient-to-r from-sky-400 to-sky-500",
-    btn: "bg-gradient-to-r from-sky-400 to-sky-500 hover:from-sky-500 hover:to-sky-600",
-    border: "border-sky-300",
-    price: "text-sky-800",
-    dot: "bg-sky-400",
-    feat: "text-sky-700",
-  },
+// ─── Theme ────────────────────────────────────────────────────────────────────
+
+const T = {
+  primary: "#ec4899",
+  primaryDark: "#be185d",
+  accent: "#f9a8d4",
+  accentDark: "#db2777",
+  text: "#831843",
+  textMuted: "#9d6b85",
+  surface: "#ffffff",
+  border: "#fce7f3",
+  chip1: "#fce7f3",
+  chip1Text: "#be185d",
+  chip2: "#fef3f7",
+  chip2Text: "#9d2466",
 };
+
+const PKG_PALETTE: Record<string, { from: string; to: string; price: string }> = {
+  rose:   { from: "#f9a8d4", to: "#ec4899",  price: "#be185d" },
+  amber:  { from: "#fbbf24", to: "#f472b6",  price: "#be185d" },
+  purple: { from: "#c4b5fd", to: "#a78bfa",  price: "#6d28d9" },
+  sky:    { from: "#7dd3fc", to: "#f9a8d4",  price: "#0891b2" },
+};
+
+// ─── Small inline SVG icons ───────────────────────────────────────────────────
+
+function SparkIcon({ size = 14 }: { size?: number }) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 24 24" fill="currentColor">
+      <path d="M12 2l1.8 5.4L19 9l-5.2 1.6L12 16l-1.8-5.4L5 9l5.2-1.6z" />
+    </svg>
+  );
+}
+
+function WaIcon({ size = 22 }: { size?: number }) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 24 24" fill="currentColor">
+      <path d="M17.6 6.3A8 8 0 0 0 4.4 16l-1.1 4 4.1-1.1a8 8 0 0 0 12-7 8 8 0 0 0-1.8-5.6zm-5.6 12.3a6.6 6.6 0 0 1-3.4-.9l-.2-.2-2.4.7.7-2.4-.2-.3a6.6 6.6 0 1 1 12.2-3.5 6.6 6.6 0 0 1-6.7 6.6zm3.7-5c-.2-.1-1.2-.6-1.4-.6-.2-.1-.3-.1-.5.1l-.6.7c-.1.1-.2.2-.4.1-.2-.1-.9-.3-1.7-1-.6-.5-1-1.2-1.2-1.4-.1-.2 0-.3.1-.4l.3-.4.2-.3c.1-.1 0-.2 0-.4l-.6-1.4c-.1-.4-.3-.3-.4-.3h-.4c-.1 0-.4.1-.6.3-.2.2-.8.7-.8 1.8 0 1 .7 2 .8 2.1.1.1 1.5 2.4 3.7 3.3.5.2.9.4 1.2.5.5.2 1 .1 1.4.1.4-.1 1.2-.5 1.4-1 .2-.5.2-.9.1-1z" />
+    </svg>
+  );
+}
+
+// ─── Reusable card wrapper ────────────────────────────────────────────────────
+
+function SCard({ children, style }: { children: React.ReactNode; style?: React.CSSProperties }) {
+  return (
+    <div
+      style={{
+        background: T.surface,
+        border: `1px solid ${T.border}`,
+        borderRadius: 16,
+        boxShadow: "0 10px 30px rgba(0,0,0,0.06)",
+        overflow: "hidden",
+        ...style,
+      }}
+    >
+      {children}
+    </div>
+  );
+}
+
+// ─── Chip / badge ─────────────────────────────────────────────────────────────
+
+function Chip({
+  icon, bg, color, children,
+}: {
+  icon: React.ReactNode;
+  bg: string;
+  color: string;
+  children: React.ReactNode;
+}) {
+  return (
+    <span
+      style={{
+        display: "inline-flex",
+        alignItems: "center",
+        gap: 6,
+        padding: "6px 12px",
+        borderRadius: 999,
+        background: bg,
+        color,
+        fontSize: 13,
+        fontWeight: 600,
+      }}
+    >
+      {icon}
+      {children}
+    </span>
+  );
+}
+
+// ─── Cotton-candy decorative background ───────────────────────────────────────
+
+function Decorations() {
+  return (
+    <div
+      style={{
+        position: "fixed",
+        inset: 0,
+        pointerEvents: "none",
+        zIndex: 0,
+        overflow: "hidden",
+      }}
+    >
+      <div className="puff-layer puff-layer--a" />
+      <div className="puff-layer puff-layer--b" />
+      <div className="puff-layer puff-layer--c" />
+
+      {/* Wave ribbon – upper */}
+      <svg
+        viewBox="0 0 1440 200"
+        preserveAspectRatio="none"
+        style={{ position: "absolute", top: "20%", left: 0, width: "100%", height: 220, opacity: 0.55 }}
+      >
+        <defs>
+          <linearGradient id="r1" x1="0" x2="1" y1="0" y2="0">
+            <stop offset="0%" stopColor="#fbcfe8" stopOpacity="0" />
+            <stop offset="50%" stopColor="#f9a8d4" stopOpacity="0.7" />
+            <stop offset="100%" stopColor="#fbcfe8" stopOpacity="0" />
+          </linearGradient>
+        </defs>
+        <path
+          className="ribbon-a"
+          fill="url(#r1)"
+          d="M0,100 C240,40 480,160 720,100 C960,40 1200,160 1440,100 L1440,140 C1200,200 960,80 720,140 C480,200 240,80 0,140 Z"
+          style={{ filter: "blur(14px)" }}
+        />
+      </svg>
+
+      {/* Wave ribbon – lower */}
+      <svg
+        viewBox="0 0 1440 200"
+        preserveAspectRatio="none"
+        style={{ position: "absolute", bottom: "15%", left: 0, width: "100%", height: 240, opacity: 0.5 }}
+      >
+        <defs>
+          <linearGradient id="r2" x1="0" x2="1" y1="0" y2="0">
+            <stop offset="0%" stopColor="#e9d5ff" stopOpacity="0" />
+            <stop offset="50%" stopColor="#f0abfc" stopOpacity="0.65" />
+            <stop offset="100%" stopColor="#e9d5ff" stopOpacity="0" />
+          </linearGradient>
+        </defs>
+        <path
+          className="ribbon-b"
+          fill="url(#r2)"
+          d="M0,100 C240,160 480,40 720,100 C960,160 1200,40 1440,100 L1440,60 C1200,0 960,120 720,60 C480,0 240,120 0,60 Z"
+          style={{ filter: "blur(16px)" }}
+        />
+      </svg>
+
+      {/* Floating sparkles */}
+      {(
+        [
+          { top: "12%",  left: "8%",   size: 18, delay: "0s" },
+          { top: "20%",  right: "12%", size: 14, delay: "1.2s" },
+          { top: "55%",  left: "5%",   size: 12, delay: "2s" },
+          { top: "70%",  right: "8%",  size: 20, delay: "0.6s" },
+          { top: "40%",  left: "48%",  size: 10, delay: "3s" },
+          { bottom: "18%", left: "30%", size: 16, delay: "1.5s" },
+          { top: "85%",  right: "30%", size: 13, delay: "2.8s" },
+        ] as { top?: string; bottom?: string; left?: string; right?: string; size: number; delay: string }[]
+      ).map((s, i) => (
+        <span
+          key={i}
+          style={{
+            position: "absolute",
+            top: s.top,
+            bottom: s.bottom,
+            left: s.left,
+            right: s.right,
+            color: T.primary,
+            opacity: 0.4,
+            animation: `sparkleFloat 5s ease-in-out infinite ${s.delay}`,
+          }}
+        >
+          <SparkIcon size={s.size} />
+        </span>
+      ))}
+
+      {/* Floating hearts */}
+      {(
+        [
+          { top: "25%",    left: "15%",  size: 14, delay: "2.5s" },
+          { top: "65%",    right: "20%", size: 18, delay: "0.8s" },
+          { bottom: "30%", left: "55%",  size: 12, delay: "3.5s" },
+        ] as { top?: string; bottom?: string; left?: string; right?: string; size: number; delay: string }[]
+      ).map((s, i) => (
+        <span
+          key={`h${i}`}
+          style={{
+            position: "absolute",
+            top: s.top,
+            bottom: s.bottom,
+            left: s.left,
+            right: s.right,
+            color: T.accentDark,
+            opacity: 0.35,
+            animation: `sparkleFloat 6s ease-in-out infinite ${s.delay}`,
+          }}
+        >
+          <Heart size={s.size} fill="currentColor" />
+        </span>
+      ))}
+    </div>
+  );
+}
+
+// ─── Floating FAB contact ─────────────────────────────────────────────────────
+
+function FloatingContact({ waLink, instagramUrl }: { waLink: string; instagramUrl: string }) {
+  const [open, setOpen] = useState(false);
+  const [pulse, setPulse] = useState(true);
+
+  useEffect(() => {
+    const t = setTimeout(() => setPulse(false), 6000);
+    return () => clearTimeout(t);
+  }, []);
+
+  const items = [
+    {
+      id: "wa",
+      label: "WhatsApp",
+      icon: <WaIcon size={22} />,
+      bg: "linear-gradient(135deg, #25d366, #128c7e)",
+      href: waLink,
+    },
+    {
+      id: "ig",
+      label: "Instagram",
+      icon: <Instagram size={22} />,
+      bg: "linear-gradient(135deg, #f58529, #dd2a7b, #8134af)",
+      href: instagramUrl,
+    },
+    {
+      id: "mail",
+      label: "Email",
+      icon: <Mail size={22} />,
+      bg: `linear-gradient(135deg, ${T.primary}, ${T.accentDark})`,
+      href: "mailto:dikihidayat.dh@gmail.com",
+    },
+    {
+      id: "tt",
+      label: "TikTok",
+      icon: <Play size={22} />,
+      bg: "linear-gradient(135deg, #25f4ee, #fe2c55)",
+      href: "https://www.tiktok.com/@biqhtirrr",
+    },
+  ];
+
+  return (
+    <>
+      {/* Hint bubble */}
+      {!open && pulse && (
+        <div
+          style={{
+            position: "fixed",
+            bottom: 96,
+            right: 96,
+            zIndex: 49,
+            background: "#fff",
+            color: T.text,
+            padding: "10px 14px",
+            borderRadius: 16,
+            boxShadow: "0 8px 24px rgba(236, 72, 153, 0.18)",
+            fontSize: 13,
+            fontWeight: 600,
+            border: `1px solid ${T.border}`,
+            animation: "fcBubble 0.5s ease-out, fcFloat 3s ease-in-out 0.5s infinite",
+            whiteSpace: "nowrap",
+          }}
+        >
+          Hi, let&apos;s chat! 💕
+          <div
+            style={{
+              position: "absolute",
+              right: -6,
+              bottom: 14,
+              width: 12,
+              height: 12,
+              background: "#fff",
+              transform: "rotate(45deg)",
+              borderRight: `1px solid ${T.border}`,
+              borderTop: `1px solid ${T.border}`,
+            }}
+          />
+        </div>
+      )}
+
+      {/* Expanded contact items */}
+      <div
+        style={{
+          position: "fixed",
+          bottom: 96,
+          right: 24,
+          zIndex: 50,
+          display: "flex",
+          flexDirection: "column",
+          gap: 12,
+          alignItems: "flex-end",
+          pointerEvents: open ? "auto" : "none",
+        }}
+      >
+        {items.map((item, i) => (
+          <a
+            key={item.id}
+            href={item.href}
+            target="_blank"
+            rel="noopener noreferrer"
+            style={{
+              display: "flex",
+              alignItems: "center",
+              gap: 12,
+              transform: open ? "translateY(0) scale(1)" : "translateY(20px) scale(0.6)",
+              opacity: open ? 1 : 0,
+              transition: `all 0.35s cubic-bezier(0.34,1.56,0.64,1) ${
+                open ? i * 0.05 : (items.length - i) * 0.03
+              }s`,
+              textDecoration: "none",
+            }}
+          >
+            <span
+              style={{
+                background: "#fff",
+                color: T.text,
+                padding: "6px 12px",
+                borderRadius: 12,
+                fontSize: 13,
+                fontWeight: 700,
+                boxShadow: "0 6px 16px rgba(0,0,0,0.1)",
+                border: `1px solid ${T.border}`,
+                whiteSpace: "nowrap",
+              }}
+            >
+              {item.label}
+            </span>
+            <span
+              style={{
+                width: 48,
+                height: 48,
+                borderRadius: 999,
+                background: item.bg,
+                display: "grid",
+                placeItems: "center",
+                color: "#fff",
+                boxShadow: "0 8px 20px rgba(0,0,0,0.18)",
+              }}
+            >
+              {item.icon}
+            </span>
+          </a>
+        ))}
+      </div>
+
+      {/* Main FAB button */}
+      <button
+        onClick={() => {
+          setOpen(!open);
+          setPulse(false);
+        }}
+        aria-label="Contact"
+        style={{
+          position: "fixed",
+          bottom: 24,
+          right: 24,
+          zIndex: 51,
+          width: 60,
+          height: 60,
+          borderRadius: 999,
+          border: "none",
+          background: `linear-gradient(135deg, ${T.primary}, ${T.accentDark})`,
+          color: "#fff",
+          cursor: "pointer",
+          display: "grid",
+          placeItems: "center",
+          boxShadow: open
+            ? "0 12px 30px rgba(236, 72, 153, 0.45)"
+            : "0 10px 25px rgba(236, 72, 153, 0.35)",
+          transition: "transform 0.3s cubic-bezier(0.34,1.56,0.64,1), box-shadow 0.3s",
+          transform: open ? "rotate(135deg) scale(1.05)" : "rotate(0deg) scale(1)",
+          fontFamily: "inherit",
+        }}
+      >
+        {/* Pulse ring */}
+        {!open && pulse && (
+          <span
+            style={{
+              position: "absolute",
+              inset: 0,
+              borderRadius: 999,
+              background: T.primary,
+              opacity: 0.5,
+              animation: "fcPulse 2s ease-out infinite",
+            }}
+          />
+        )}
+
+        {open ? <X size={24} /> : <MessageCircle size={26} />}
+
+        {/* Sparkle badge */}
+        {!open && (
+          <span
+            style={{
+              position: "absolute",
+              top: -2,
+              right: -2,
+              width: 16,
+              height: 16,
+              borderRadius: 999,
+              background: "#fff",
+              display: "grid",
+              placeItems: "center",
+              color: T.accentDark,
+              boxShadow: "0 2px 6px rgba(0,0,0,0.15)",
+              animation: "fcSparkle 2s ease-in-out infinite",
+            }}
+          >
+            <SparkIcon size={11} />
+          </span>
+        )}
+      </button>
+    </>
+  );
+}
+
+// ─── Demographics bar group ───────────────────────────────────────────────────
+
+function DemogGroup({
+  title,
+  color,
+  track,
+  data,
+}: {
+  title: string;
+  color: string;
+  track: string;
+  data: Record<string, number>;
+}) {
+  return (
+    <div>
+      <h4
+        style={{
+          margin: "0 0 14px",
+          fontSize: 16,
+          fontWeight: 800,
+          color,
+          textAlign: "center",
+          borderBottom: `2px solid ${T.accent}`,
+          paddingBottom: 8,
+        }}
+      >
+        {title}
+      </h4>
+      {Object.entries(data).map(([k, v]) => (
+        <div key={k} style={{ marginBottom: 12 }}>
+          <div style={{ display: "flex", justifyContent: "space-between", marginBottom: 6 }}>
+            <span style={{ fontSize: 13, fontWeight: 600, color: T.textMuted, textTransform: "capitalize" }}>
+              {k.includes("-") || k.includes("+") ? `Age ${k}` : k}
+            </span>
+            <span style={{ fontSize: 13, color: T.textMuted }}>{v}%</span>
+          </div>
+          <div
+            style={{
+              width: "100%",
+              height: 8,
+              background: track,
+              borderRadius: 999,
+              overflow: "hidden",
+            }}
+          >
+            <div
+              style={{
+                width: `${v}%`,
+                height: "100%",
+                background: `linear-gradient(90deg, ${color}, ${color})`,
+                borderRadius: 999,
+              }}
+            />
+          </div>
+        </div>
+      ))}
+    </div>
+  );
+}
+
+// ─── Stat box ─────────────────────────────────────────────────────────────────
+
+function StatBox({
+  label,
+  value,
+  color,
+  bg,
+}: {
+  label: string;
+  value: string;
+  color: string;
+  bg: string;
+}) {
+  return (
+    <div style={{ textAlign: "center", padding: 16, background: bg, borderRadius: 12 }}>
+      <div style={{ fontSize: 24, fontWeight: 800, color, lineHeight: 1 }}>{value}</div>
+      <div style={{ fontSize: 12, color: T.textMuted, marginTop: 4 }}>{label}</div>
+    </div>
+  );
+}
+
+// ─── Main page ────────────────────────────────────────────────────────────────
 
 export default function Home() {
   const [activeSection, setActiveSection] = useState("profile");
   const [emailCopied, setEmailCopied] = useState(false);
   const [modalImage, setModalImage] = useState<string | null>(null);
   const [content, setContent] = useState<SiteContent>(defaultContent);
+  const [scrolled, setScrolled] = useState(false);
+  const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
+    setMounted(true);
     fetch("/api/content")
       .then((r) => r.json())
       .then((data: SiteContent) => setContent(data))
-      .catch(() => {/* use default */});
+      .catch(() => {});
+  }, []);
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 60);
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
   const copyEmail = async () => {
@@ -231,496 +706,1197 @@ export default function Home() {
       await navigator.clipboard.writeText(content.contact.email);
       setEmailCopied(true);
       setTimeout(() => setEmailCopied(false), 2000);
-    } catch (err) {
-      console.error("Failed to copy email:", err);
-    }
+    } catch {}
   };
-
-  const openModal = (imageSrc: string) => setModalImage(imageSrc);
-  const closeModal = () => setModalImage(null);
 
   const waLink = `https://wa.me/${content.contact.whatsapp.replace(/\D/g, "")}`;
 
+  const cssVars = {
+    "--primary": T.primary,
+    "--primary-dark": T.primaryDark,
+    "--accent": T.accent,
+    "--accent-dark": T.accentDark,
+    "--text": T.text,
+    "--text-muted": T.textMuted,
+    "--surface": T.surface,
+    "--border": T.border,
+    "--chip1": T.chip1,
+    "--chip1-text": T.chip1Text,
+    "--chip2": T.chip2,
+    "--chip2-text": T.chip2Text,
+  } as React.CSSProperties;
+
   return (
-    <div className="min-h-screen bg-gradient-to-br from-rose-50 to-amber-50">
-      {/* Header */}
-      <header className="sticky top-0 z-50 bg-white/80 backdrop-blur-md border-b border-rose-100">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-between h-16">
-            <div className="flex items-center space-x-3">
-              <div className="w-8 h-8 bg-gradient-to-r from-rose-400 to-amber-400 rounded-full flex items-center justify-center">
-                <Play className="w-4 h-4 text-white" />
+    <div
+      style={{
+        ...cssVars,
+        minHeight: "100vh",
+        background: "linear-gradient(160deg, #fff5f7 0%, #ffeef5 50%, #fef3f7 100%)",
+        color: T.text,
+        fontFamily: '"Plus Jakarta Sans", "Inter", system-ui, sans-serif',
+        position: "relative",
+      }}
+    >
+      <Decorations />
+
+      <div style={{ position: "relative", zIndex: 1 }}>
+        {/* ── Header ── */}
+        <header
+          style={{
+            position: "sticky",
+            top: 0,
+            zIndex: 40,
+            background: scrolled
+              ? "rgba(255, 240, 248, 0.28)"
+              : "rgba(255,255,255,0.88)",
+            backdropFilter: scrolled
+              ? "blur(24px) saturate(200%)"
+              : "blur(12px) saturate(120%)",
+            WebkitBackdropFilter: scrolled
+              ? "blur(24px) saturate(200%)"
+              : "blur(12px) saturate(120%)",
+            borderBottom: scrolled
+              ? "1px solid rgba(249, 168, 212, 0.3)"
+              : `1px solid ${T.border}`,
+            boxShadow: scrolled
+              ? "0 4px 32px rgba(236, 72, 153, 0.12)"
+              : "none",
+            transition:
+              "background 0.4s ease, backdrop-filter 0.4s ease, box-shadow 0.4s ease, border-color 0.4s ease",
+          }}
+        >
+          <div
+            style={{
+              maxWidth: 1120,
+              margin: "0 auto",
+              padding: "0 24px",
+              height: 64,
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "space-between",
+            }}
+          >
+            <div style={{ display: "flex", alignItems: "center", gap: 12 }}>
+              <div
+                style={{
+                  width: 32,
+                  height: 32,
+                  borderRadius: 999,
+                  background: `linear-gradient(135deg, ${T.primary}, ${T.accentDark})`,
+                  display: "grid",
+                  placeItems: "center",
+                }}
+              >
+                <Play size={14} style={{ color: "#fff" }} />
               </div>
-              <span className="text-xl font-bold text-amber-800">{content.profile.handle}</span>
+              <span
+                style={{
+                  fontSize: 20,
+                  fontWeight: 800,
+                  color: T.text,
+                  textShadow: scrolled ? "0 1px 4px rgba(255,255,255,0.6)" : "none",
+                  transition: "text-shadow 0.4s ease",
+                }}
+              >
+                {content.profile.handle}
+              </span>
             </div>
-            <nav className="hidden md:flex space-x-8">
-              {["profile", "ratecard", "analytics"].map((section) => (
+
+            {/* Desktop nav */}
+            <nav className="hidden md:flex" style={{ gap: 32, display: "flex" }}>
+              {["profile", "ratecard", "analytics"].map((s) => (
                 <button
-                  key={section}
-                  onClick={() => setActiveSection(section)}
-                  className={`capitalize font-medium transition-colors ${
-                    activeSection === section
-                      ? "text-rose-600 border-b-2 border-rose-600"
-                      : "text-amber-700 hover:text-rose-600"
-                  }`}
+                  key={s}
+                  className="nav-item"
+                  onClick={() => setActiveSection(s)}
+                  style={{
+                    fontWeight: 600,
+                    fontSize: 14,
+                    textTransform: "capitalize",
+                    color: activeSection === s ? T.primary : T.textMuted,
+                    borderBottom:
+                      activeSection === s
+                        ? `2px solid ${T.primary}`
+                        : "2px solid transparent",
+                    fontFamily: "inherit",
+                    textShadow: scrolled ? "0 1px 4px rgba(255,255,255,0.6)" : "none",
+                    transition: "color 0.2s, text-shadow 0.4s ease",
+                  }}
                 >
-                  {section}
+                  {s}
                 </button>
               ))}
             </nav>
           </div>
-        </div>
-      </header>
+        </header>
 
-      <main className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-        {/* Hero Section */}
-        <section className="text-center mb-4">
-          <div className="relative inline-block mb-6">
-            <div className="w-32 h-32 mx-auto rounded-full bg-gradient-to-r from-rose-400 to-amber-400 p-1 cursor-pointer hover:scale-105 transition-transform duration-300">
-              <div className="w-full h-full rounded-full bg-white flex items-center justify-center">
-                <img
-                  src="/image.jpg"
-                  alt={content.profile.handle}
-                  className="w-28 h-28 rounded-full object-cover -rotate-90"
-                  onClick={() => openModal("/image.jpg")}
+        <main style={{ maxWidth: 1120, margin: "0 auto", padding: "0 24px" }}>
+          {/* ── Hero ── */}
+          <section style={{ padding: "48px 0 8px", textAlign: "center" }}>
+            {/* Avatar with orbit rings */}
+            <div
+              style={{
+                position: "relative",
+                display: "inline-block",
+                marginBottom: 24,
+                width: 180,
+                height: 180,
+              }}
+            >
+              <svg
+                width="180"
+                height="180"
+                viewBox="0 0 180 180"
+                style={{ position: "absolute", inset: 0, pointerEvents: "none" }}
+              >
+                <defs>
+                  <linearGradient id="flowA" x1="0" x2="1" y1="0" y2="1">
+                    <stop offset="0%" stopColor={T.primary} stopOpacity="0" />
+                    <stop offset="50%" stopColor={T.primary} stopOpacity="0.9" />
+                    <stop offset="100%" stopColor={T.primary} stopOpacity="0" />
+                  </linearGradient>
+                  <linearGradient id="flowB" x1="1" x2="0" y1="0" y2="1">
+                    <stop offset="0%" stopColor={T.accent} stopOpacity="0" />
+                    <stop offset="50%" stopColor={T.accent} stopOpacity="0.85" />
+                    <stop offset="100%" stopColor={T.accent} stopOpacity="0" />
+                  </linearGradient>
+                </defs>
+                {/* Outer arc – slow spin */}
+                <circle
+                  cx="90" cy="90" r="86"
+                  fill="none" stroke="url(#flowA)" strokeWidth="2" strokeLinecap="round"
+                  strokeDasharray="120 420"
+                  style={{
+                    transformOrigin: "90px 90px",
+                    animation: "spinSlow 12s linear infinite",
+                  }}
                 />
+                {/* Mid arc – reverse spin */}
+                <circle
+                  cx="90" cy="90" r="80"
+                  fill="none" stroke="url(#flowB)" strokeWidth="1.5" strokeLinecap="round"
+                  strokeDasharray="60 380"
+                  style={{
+                    transformOrigin: "90px 90px",
+                    animation: "spinReverse 9s linear infinite",
+                  }}
+                />
+                {/* Tiny dots along orbit */}
+                <circle
+                  cx="90" cy="90" r="84"
+                  fill="none" stroke={T.accent} strokeWidth="3" strokeLinecap="round"
+                  strokeDasharray="2 80"
+                  style={{
+                    transformOrigin: "90px 90px",
+                    animation: "spinSlow 18s linear infinite",
+                  }}
+                />
+              </svg>
+
+              <div
+                style={{
+                  position: "absolute",
+                  top: 18,
+                  left: 18,
+                  width: 144,
+                  height: 144,
+                  borderRadius: 999,
+                  background: `linear-gradient(135deg, ${T.primary}, ${T.accent})`,
+                  padding: 4,
+                }}
+              >
+                <div
+                  style={{
+                    width: "100%",
+                    height: "100%",
+                    borderRadius: 999,
+                    background: "#fff",
+                    padding: 4,
+                  }}
+                >
+                  <img
+                    src="/image.jpg"
+                    alt={content.profile.handle}
+                    style={{
+                      width: "100%",
+                      height: "100%",
+                      borderRadius: 999,
+                      objectFit: "cover",
+                      transform: "rotate(-90deg)",
+                      cursor: "pointer",
+                    }}
+                    onClick={() => setModalImage("/image.jpg")}
+                  />
+                </div>
+              </div>
+
+              {/* Heartbeat badge */}
+              <div
+                style={{
+                  position: "absolute",
+                  bottom: 8,
+                  right: 8,
+                  width: 36,
+                  height: 36,
+                  borderRadius: 999,
+                  background: T.primary,
+                  display: "grid",
+                  placeItems: "center",
+                  border: "3px solid #fff",
+                  animation: "heartBeat 2.5s ease-in-out infinite",
+                }}
+              >
+                <Heart size={16} style={{ color: "#fff" }} fill="white" />
               </div>
             </div>
-            <div className="absolute -bottom-2 -right-2 w-8 h-8 bg-rose-500 rounded-full flex items-center justify-center">
-              <Heart className="w-4 h-4 text-white fill-current" />
+
+            <h1
+              style={{
+                fontSize: 56,
+                fontWeight: 800,
+                color: T.text,
+                margin: "16px 0 12px",
+                letterSpacing: "-0.02em",
+                cursor: "pointer",
+              }}
+              onClick={() => window.open(content.profile.tiktokUrl, "_blank")}
+            >
+              {content.profile.handle}
+            </h1>
+            <p style={{ fontSize: 20, color: T.textMuted, maxWidth: 640, margin: "0 auto 24px" }}>
+              {content.profile.tagline}
+            </p>
+
+            <div
+              style={{
+                display: "flex",
+                flexWrap: "wrap",
+                gap: 12,
+                justifyContent: "center",
+                marginBottom: 12,
+              }}
+            >
+              <Chip icon={<Users size={14} />} bg={T.chip1} color={T.chip1Text}>
+                {content.profile.followers} Followers
+              </Chip>
+              <Chip icon={<Eye size={14} />} bg={T.chip2} color={T.chip2Text}>
+                Millions of Views
+              </Chip>
+              <Chip icon={<TrendingUp size={14} />} bg={T.chip1} color={T.chip1Text}>
+                High Engagement
+              </Chip>
             </div>
-          </div>
 
-          <h1
-            onClick={() => window.open(content.profile.tiktokUrl, "_blank")}
-            className="text-4xl md:text-5xl font-bold text-amber-800 mb-4 cursor-pointer hover:text-rose-600 transition-colors duration-300"
-          >
-            {content.profile.handle}
-          </h1>
-          <p className="text-xl text-amber-600 mb-6 max-w-2xl mx-auto">
-            {content.profile.tagline}
-          </p>
-
-          <div className="flex flex-wrap justify-center gap-4 mb-8">
-            <Badge variant="secondary" className="bg-rose-100 text-rose-700 hover:bg-rose-200">
-              <Users className="w-4 h-4 mr-1" />
-              {content.profile.followers} Followers
-            </Badge>
-            <Badge variant="secondary" className="bg-amber-100 text-amber-700 hover:bg-amber-200">
-              <Eye className="w-4 h-4 mr-1" />
-              Million of Views
-            </Badge>
-            <Badge variant="secondary" className="bg-rose-100 text-rose-700 hover:bg-rose-200">
-              <TrendingUp className="w-4 h-4 mr-1" />
-              more Engagement
-            </Badge>
-          </div>
-          <p className="text-lg font-semibold italic underline text-amber-800 text-right">
-            {content.profile.updateDate}
-          </p>
-        </section>
-
-        {/* Profile Section */}
-        {activeSection === "profile" && (
-          <section className="mb-16 animate-in slide-in-from-bottom-4 duration-500">
-            <div className="grid lg:grid-cols-2 gap-8">
-              <Card className="border-rose-200 shadow-lg">
-                <CardHeader className="bg-gradient-to-r from-rose-100 to-amber-100">
-                  <CardTitle className="text-amber-800">About Me</CardTitle>
-                </CardHeader>
-                <CardContent className="p-6">
-                  <p className="text-amber-700 leading-relaxed mb-6">
-                    {content.profile.aboutText1}
-                  </p>
-                  <p className="text-amber-700 leading-relaxed mb-6">
-                    {content.profile.aboutText2}
-                  </p>
-                  <div className="space-y-4">
-                    {content.profile.highlights.map((h, i) => (
-                      <div key={i} className="flex items-center text-amber-600">
-                        <TrendingUp className="w-5 h-5 mr-3 text-rose-500" />
-                        <span>{h}</span>
-                      </div>
-                    ))}
-                  </div>
-                </CardContent>
-              </Card>
-
-              <Card className="border-rose-200 shadow-lg">
-                <CardHeader className="bg-gradient-to-r from-rose-100 to-amber-100">
-                  <CardTitle className="text-amber-800">Audience Demographics</CardTitle>
-                </CardHeader>
-                <CardContent className="p-6">
-                  <div className="space-y-6">
-                    {/* Gender */}
-                    <div>
-                      <h1 className="font-bold text-lg text-rose-600 border-b-2 border-yellow-500 my-2 pb-2 text-center">Gender</h1>
-                      {(["female", "male", "others"] as const).map((k) => (
-                        <div key={k} className="mb-3">
-                          <div className="flex justify-between mb-2">
-                            <span className="text-sm font-medium text-amber-700 capitalize">{k}</span>
-                            <span className="text-sm text-amber-600">{content.demographics.gender[k]}%</span>
-                          </div>
-                          <div className="w-full bg-rose-100 rounded-full h-2">
-                            <div
-                              className="bg-gradient-to-r from-rose-400 to-rose-500 h-2 rounded-full"
-                              style={{ width: `${content.demographics.gender[k]}%` }}
-                            />
-                          </div>
-                        </div>
-                      ))}
-                    </div>
-                    {/* Age */}
-                    <div>
-                      <h1 className="font-bold text-lg text-amber-600 border-b-2 border-yellow-500 my-2 pb-2 text-center">Age</h1>
-                      {(["18-24", "25-34", "36-55+"] as const).map((k) => (
-                        <div key={k} className="mb-3">
-                          <div className="flex justify-between mb-2">
-                            <span className="text-sm font-medium text-amber-700">Age {k}</span>
-                            <span className="text-sm text-amber-600">{content.demographics.age[k]}%</span>
-                          </div>
-                          <div className="w-full bg-amber-100 rounded-full h-2">
-                            <div
-                              className="bg-gradient-to-r from-amber-400 to-amber-500 h-2 rounded-full"
-                              style={{ width: `${content.demographics.age[k]}%` }}
-                            />
-                          </div>
-                        </div>
-                      ))}
-                    </div>
-                    {/* Location */}
-                    <div>
-                      <h1 className="font-bold text-lg text-green-600 border-b-2 border-yellow-500 my-2 pb-2 text-center">Location</h1>
-                      {(["indonesia", "others"] as const).map((k) => (
-                        <div key={k} className="mb-3">
-                          <div className="flex justify-between mb-2">
-                            <span className="text-sm font-medium text-green-700 capitalize">{k}</span>
-                            <span className="text-sm text-green-600">{content.demographics.location[k]}%</span>
-                          </div>
-                          <div className="w-full bg-green-100 rounded-full h-2">
-                            <div
-                              className="bg-gradient-to-r from-green-400 to-green-500 h-2 rounded-full"
-                              style={{ width: `${content.demographics.location[k]}%` }}
-                            />
-                          </div>
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-                </CardContent>
-              </Card>
-            </div>
           </section>
-        )}
 
-        {/* Rate Card Section */}
-        {activeSection === "ratecard" && (
-          <section className="mb-16 animate-in slide-in-from-bottom-4 duration-500">
-            <div className="text-center mb-12">
-              <h2 className="text-3xl md:text-4xl font-bold text-amber-800 mb-4">Rate Card</h2>
-              <p className="text-xl text-amber-600 max-w-2xl mx-auto">
-                Professional content creation packages ✨
-              </p>
-            </div>
-
-            <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-              {content.packages.map((pkg) => {
-                const colors = pkgColors[pkg.color] || pkgColors.rose;
-                return (
-                  <Card
-                    key={pkg.id}
-                    className={`${colors.border} shadow-xl hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 relative`}
+          {/* ── Profile section ── */}
+          {activeSection === "profile" && (
+            <section className="fade-up" style={{ padding: "32px 0 64px" }}>
+              <div
+                style={{
+                  display: "grid",
+                  gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))",
+                  gap: 32,
+                }}
+              >
+                {/* About Me */}
+                <SCard>
+                  <div
+                    style={{
+                      padding: "20px 24px",
+                      background: `linear-gradient(135deg, ${T.chip1} 0%, ${T.chip2} 100%)`,
+                    }}
                   >
-                    {pkg.popular && (
-                      <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
-                        <Badge className="bg-gradient-to-r from-amber-400 to-amber-500 text-white px-4 py-1 text-sm font-semibold">
+                    <h3 style={{ margin: 0, color: T.text, fontSize: 18, fontWeight: 700 }}>
+                      About Me
+                    </h3>
+                  </div>
+                  <div style={{ padding: 24 }}>
+                    <p style={{ color: T.textMuted, lineHeight: 1.7, marginTop: 0 }}>
+                      {content.profile.aboutText1}
+                    </p>
+                    <p style={{ color: T.textMuted, lineHeight: 1.7 }}>
+                      {content.profile.aboutText2}
+                    </p>
+                    <div
+                      style={{
+                        display: "flex",
+                        flexDirection: "column",
+                        gap: 14,
+                        marginTop: 24,
+                      }}
+                    >
+                      {content.profile.highlights.map((h, i) => (
+                        <div
+                          key={i}
+                          style={{
+                            display: "flex",
+                            gap: 12,
+                            alignItems: "flex-start",
+                            color: T.textMuted,
+                          }}
+                        >
+                          <TrendingUp
+                            size={20}
+                            style={{ color: T.primary, flexShrink: 0, marginTop: 2 }}
+                          />
+                          <span>{h}</span>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                </SCard>
+
+                {/* Demographics */}
+                <SCard>
+                  <div
+                    style={{
+                      padding: "20px 24px",
+                      background: `linear-gradient(135deg, ${T.chip1} 0%, ${T.chip2} 100%)`,
+                    }}
+                  >
+                    <h3 style={{ margin: 0, color: T.text, fontSize: 18, fontWeight: 700 }}>
+                      Audience Demographics
+                    </h3>
+                  </div>
+                  <div style={{ padding: 24, display: "flex", flexDirection: "column", gap: 24 }}>
+                    <DemogGroup
+                      title="Gender"
+                      color={T.primary}
+                      track={T.chip1}
+                      data={content.demographics.gender}
+                    />
+                    <DemogGroup
+                      title="Age"
+                      color={T.accentDark}
+                      track={T.chip2}
+                      data={content.demographics.age}
+                    />
+                    <DemogGroup
+                      title="Location"
+                      color="#10b981"
+                      track="#d1fae5"
+                      data={content.demographics.location}
+                    />
+                  </div>
+                </SCard>
+              </div>
+            </section>
+          )}
+
+          {/* ── Ratecard section ── */}
+          {activeSection === "ratecard" && (
+            <section className="fade-up" style={{ padding: "32px 0 64px" }}>
+              <div style={{ textAlign: "center", marginBottom: 48 }}>
+                <h2
+                  style={{
+                    fontSize: 40,
+                    fontWeight: 800,
+                    color: T.text,
+                    margin: "0 0 12px",
+                    letterSpacing: "-0.02em",
+                  }}
+                >
+                  Rate Card
+                </h2>
+                <p style={{ fontSize: 18, color: T.textMuted, margin: 0 }}>
+                  Professional content creation packages ✨
+                </p>
+              </div>
+
+              <div
+                style={{
+                  display: "grid",
+                  gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))",
+                  gap: 32,
+                  maxWidth: 900,
+                  margin: "0 auto",
+                }}
+              >
+                {content.packages.map((pkg) => {
+                  const c = PKG_PALETTE[pkg.color] || PKG_PALETTE.rose;
+                  return (
+                    <div
+                      key={pkg.id}
+                      className="pkg-card"
+                      style={{
+                        position: "relative",
+                        background: T.surface,
+                        border: `1px solid ${T.border}`,
+                        borderRadius: 16,
+                        boxShadow: pkg.popular
+                          ? "0 20px 50px rgba(0,0,0,0.12)"
+                          : "0 10px 30px rgba(0,0,0,0.06)",
+                        overflow: "hidden",
+                        transform: pkg.popular ? "translateY(-4px)" : "none",
+                      }}
+                    >
+                      {pkg.popular && (
+                        <div
+                          style={{
+                            position: "absolute",
+                            top: -2,
+                            left: "50%",
+                            transform: "translateX(-50%)",
+                            background: `linear-gradient(135deg, ${c.from}, ${c.to})`,
+                            color: "#fff",
+                            padding: "4px 16px",
+                            fontSize: 11,
+                            fontWeight: 800,
+                            letterSpacing: "0.1em",
+                            borderBottomLeftRadius: 8,
+                            borderBottomRightRadius: 8,
+                          }}
+                        >
                           MOST POPULAR
-                        </Badge>
-                      </div>
-                    )}
-                    <CardHeader className={`${colors.header} text-white text-center rounded-t-lg`}>
-                      <CardTitle className="text-2xl font-bold">{pkg.name}</CardTitle>
-                      <p className="opacity-80">{pkg.subtitle}</p>
-                    </CardHeader>
-                    <CardContent className="p-8">
-                      <div className="text-center mb-8">
-                        <div className={`text-4xl font-bold ${colors.price} mb-2`}>{pkg.price}</div>
-                        <div className="text-amber-600">{pkg.priceNote}</div>
-                        {pkg.save && (
-                          <div className="text-sm text-rose-600 font-medium mt-1">{pkg.save}</div>
-                        )}
-                      </div>
-                      {pkg.features.length > 0 && (
-                        <ul className="space-y-4 mb-8">
-                          {pkg.features.map((feat, i) => (
-                            <li key={i} className={`flex items-center ${colors.feat}`}>
-                              <div className={`w-2 h-2 ${colors.dot} rounded-full mr-3`} />
-                              {feat}
-                            </li>
-                          ))}
-                        </ul>
+                        </div>
                       )}
-                      <Button
-                        onClick={() => window.open(waLink, "_blank")}
-                        className={`w-full ${colors.btn} text-white font-semibold py-3 rounded-lg transition-all duration-300`}
+
+                      {/* Card header */}
+                      <div
+                        style={{
+                          padding: "28px 24px 24px",
+                          background: `linear-gradient(135deg, ${c.from}, ${c.to})`,
+                          color: "#fff",
+                          textAlign: "center",
+                        }}
                       >
-                        {pkg.id === "custom" ? "Consultation Now !" : "Choose Package"}
-                      </Button>
-                    </CardContent>
-                  </Card>
-                );
-              })}
-            </div>
+                        <h3 style={{ margin: "0 0 6px", fontSize: 22, fontWeight: 800 }}>
+                          {pkg.name}
+                        </h3>
+                        <p style={{ margin: 0, opacity: 0.9, fontSize: 14 }}>{pkg.subtitle}</p>
+                      </div>
 
-            <div className="mt-12 text-center">
-              <Card className="border-rose-200 bg-gradient-to-r from-rose-50 to-amber-50 max-w-3xl mx-auto">
-                <CardContent className="p-6">
-                  <h3 className="text-xl font-semibold text-amber-800 mb-4">Package Includes</h3>
-                  <div className="grid md:grid-cols-3 gap-4 text-sm text-amber-700">
-                    <div>• Content planning & scripting</div>
-                    <div>• Professional voice over</div>
-                    <div>• Post-production editing</div>
-                    <div>• Hashtag optimization</div>
-                    <div>• Posting at optimal times</div>
-                    <div>• 30-day performance tracking</div>
+                      {/* Card body */}
+                      <div style={{ padding: 28 }}>
+                        <div style={{ textAlign: "center", marginBottom: 24 }}>
+                          <div
+                            style={{
+                              fontSize: 32,
+                              fontWeight: 800,
+                              color: c.price,
+                              lineHeight: 1.1,
+                            }}
+                          >
+                            {pkg.price}
+                          </div>
+                          <div style={{ color: T.textMuted, fontSize: 14, marginTop: 4 }}>
+                            {pkg.priceNote}
+                          </div>
+                          {pkg.save && (
+                            <div
+                              style={{
+                                color: T.primary,
+                                fontSize: 13,
+                                fontWeight: 700,
+                                marginTop: 6,
+                              }}
+                            >
+                              {pkg.save}
+                            </div>
+                          )}
+                        </div>
+
+                        {pkg.features.length > 0 && (
+                          <ul
+                            style={{
+                              listStyle: "none",
+                              padding: 0,
+                              margin: "0 0 24px",
+                              display: "flex",
+                              flexDirection: "column",
+                              gap: 12,
+                            }}
+                          >
+                            {pkg.features.map((f, i) => (
+                              <li
+                                key={i}
+                                style={{
+                                  display: "flex",
+                                  alignItems: "flex-start",
+                                  gap: 10,
+                                  color: T.textMuted,
+                                  fontSize: 14,
+                                  lineHeight: 1.5,
+                                }}
+                              >
+                                <span
+                                  style={{
+                                    width: 6,
+                                    height: 6,
+                                    borderRadius: 999,
+                                    background: c.to,
+                                    flexShrink: 0,
+                                    marginTop: 8,
+                                  }}
+                                />
+                                {f}
+                              </li>
+                            ))}
+                          </ul>
+                        )}
+
+                        <button
+                          onClick={() => window.open(waLink, "_blank")}
+                          style={{
+                            width: "100%",
+                            background: `linear-gradient(135deg, ${c.from}, ${c.to})`,
+                            color: "#fff",
+                            border: "none",
+                            padding: "12px 16px",
+                            borderRadius: 10,
+                            fontWeight: 700,
+                            fontSize: 14,
+                            cursor: "pointer",
+                            transition: "filter 0.15s",
+                            fontFamily: "inherit",
+                          }}
+                          onMouseEnter={(e) =>
+                            ((e.target as HTMLElement).style.filter = "brightness(0.95)")
+                          }
+                          onMouseLeave={(e) =>
+                            ((e.target as HTMLElement).style.filter = "")
+                          }
+                        >
+                          {pkg.id === "custom" ? "Consultation Now!" : "Choose Package"}
+                        </button>
+                      </div>
+                    </div>
+                  );
+                })}
+              </div>
+
+              {/* Every package includes */}
+              <div style={{ marginTop: 48, maxWidth: 800, margin: "48px auto 0" }}>
+                <SCard>
+                  <div
+                    style={{
+                      padding: 28,
+                      background: `linear-gradient(135deg, ${T.chip1}, ${T.chip2})`,
+                    }}
+                  >
+                    <h3
+                      style={{
+                        margin: "0 0 20px",
+                        color: T.text,
+                        fontSize: 18,
+                        fontWeight: 700,
+                        textAlign: "center",
+                      }}
+                    >
+                      Every package includes
+                    </h3>
+                    <div
+                      style={{
+                        display: "grid",
+                        gridTemplateColumns: "repeat(auto-fit, minmax(200px, 1fr))",
+                        gap: 12,
+                        fontSize: 14,
+                        color: T.textMuted,
+                      }}
+                    >
+                      {[
+                        "Content planning & scripting",
+                        "Professional voice over",
+                        "Post-production editing",
+                        "Hashtag optimization",
+                        "Posting at optimal times",
+                        "30-day performance tracking",
+                      ].map((x) => (
+                        <div key={x} style={{ display: "flex", alignItems: "center", gap: 8 }}>
+                          <Check size={14} style={{ color: T.primary, flexShrink: 0 }} />
+                          <span>{x}</span>
+                        </div>
+                      ))}
+                    </div>
                   </div>
-                </CardContent>
-              </Card>
-            </div>
-          </section>
-        )}
+                </SCard>
+              </div>
+            </section>
+          )}
 
-        {/* Analytics Section */}
-        {activeSection === "analytics" && (
-          <section className="mb-16 animate-in slide-in-from-bottom-4 duration-500">
-            <div className="text-center mb-12">
-              <h2 className="text-3xl md:text-4xl font-bold text-amber-800 mb-4">
-                Analytics Overview
-              </h2>
-              <p className="text-xl text-amber-600 max-w-2xl mx-auto">
-                Real performance data and engagement metrics
-              </p>
-            </div>
+          {/* ── Analytics section ── */}
+          {activeSection === "analytics" && (
+            <section className="fade-up" style={{ padding: "32px 0 64px" }}>
+              <div style={{ textAlign: "center", marginBottom: 48 }}>
+                <h2
+                  style={{
+                    fontSize: 40,
+                    fontWeight: 800,
+                    color: T.text,
+                    margin: "0 0 12px",
+                    letterSpacing: "-0.02em",
+                  }}
+                >
+                  Analytics Overview
+                </h2>
+                <p style={{ fontSize: 18, color: T.textMuted, margin: 0 }}>
+                  Real performance data and engagement metrics
+                </p>
+              </div>
 
-            <div className="grid lg:grid-cols-2 gap-8 mb-8">
-              <Card className="border-rose-200 shadow-lg">
-                <CardHeader>
-                  <CardTitle className="text-amber-800">Overview Metrics</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <img
-                    src={content.analytics.overviewImage}
-                    alt="Analytics Dashboard"
-                    className="w-full h-64 object-cover rounded-lg mb-4 cursor-pointer hover:opacity-80 transition-opacity duration-300"
-                    onClick={() => openModal(content.analytics.overviewImage)}
-                  />
-                  <div className="grid grid-cols-2 gap-4">
-                    <div className="text-center p-4 bg-rose-50 rounded-lg">
-                      <div className="text-xl font-bold text-rose-600">{content.analytics.monthlyViews}</div>
-                      <div className="text-sm text-amber-600">Monthly Average</div>
-                    </div>
-                    <div className="text-center p-4 bg-amber-50 rounded-lg">
-                      <div className="text-2xl font-bold text-amber-600">{content.analytics.monthlyLikes}</div>
-                      <div className="text-sm text-amber-600">Monthly Likes</div>
-                    </div>
+              <div
+                style={{
+                  display: "grid",
+                  gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))",
+                  gap: 32,
+                  marginBottom: 32,
+                }}
+              >
+                {/* Overview Metrics */}
+                <SCard>
+                  <div
+                    style={{
+                      padding: "20px 24px",
+                      borderBottom: `1px solid ${T.border}`,
+                    }}
+                  >
+                    <h3 style={{ margin: 0, color: T.text, fontSize: 18, fontWeight: 700 }}>
+                      Overview Metrics
+                    </h3>
                   </div>
-                </CardContent>
-              </Card>
-
-              <Card className="border-rose-200 shadow-lg">
-                <CardHeader>
-                  <CardTitle className="text-amber-800">Audience Insights</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <img
-                    src={content.analytics.audienceImage}
-                    alt="Audience Demographics"
-                    className="w-full h-64 object-cover rounded-lg mb-4 cursor-pointer hover:opacity-80 transition-opacity duration-300"
-                    onClick={() => openModal(content.analytics.audienceImage)}
-                  />
-                  <div className="grid grid-cols-2 gap-4">
-                    <div className="text-center p-4 bg-rose-50 rounded-lg">
-                      <div className="text-2xl font-bold text-rose-600">{content.analytics.femaleAudience}</div>
-                      <div className="text-sm text-amber-600">Female Audience</div>
-                    </div>
-                    <div className="text-center p-4 bg-amber-50 rounded-lg">
-                      <div className="text-2xl font-bold text-amber-600">{content.analytics.primaryAge}</div>
-                      <div className="text-sm text-amber-600">Primary Age Group</div>
-                    </div>
-                  </div>
-                </CardContent>
-              </Card>
-            </div>
-
-            <Card className="border-rose-200 shadow-lg">
-              <CardHeader>
-                <CardTitle className="text-amber-800">Most View Content</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <div className="grid lg:grid-cols-3 gap-6 justify-center items-center">
-                  {content.analytics.topVideos.map((vid, i) => (
-                    <div key={i} className="text-center flex flex-col items-center">
-                      <img
-                        src={vid.image}
-                        alt={vid.title}
-                        className="w-48 h-64 object-cover rounded-lg mb-4 cursor-pointer hover:opacity-80 transition-opacity duration-300"
-                        onClick={() => window.open(content.profile.tiktokUrl, "_blank")}
+                  <div style={{ padding: 20 }}>
+                    <img
+                      src={content.analytics.overviewImage}
+                      alt="Analytics Dashboard"
+                      style={{
+                        width: "100%",
+                        height: 240,
+                        objectFit: "cover",
+                        borderRadius: 10,
+                        marginBottom: 16,
+                        border: `1px solid ${T.border}`,
+                        cursor: "pointer",
+                      }}
+                      onClick={() => setModalImage(content.analytics.overviewImage)}
+                    />
+                    <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 12 }}>
+                      <StatBox
+                        label="Monthly Views"
+                        value={content.analytics.monthlyViews}
+                        color={T.primary}
+                        bg={T.chip1}
                       />
-                      <h4 className="font-semibold text-amber-800 mb-2">{vid.title}</h4>
-                      <div className="text-sm text-amber-600 space-y-1">
-                        <div>{vid.views}</div>
-                        <div>{vid.likes}</div>
+                      <StatBox
+                        label="Monthly Likes"
+                        value={content.analytics.monthlyLikes}
+                        color={T.accentDark}
+                        bg={T.chip2}
+                      />
+                    </div>
+                  </div>
+                </SCard>
+
+                {/* Audience Insights */}
+                <SCard>
+                  <div
+                    style={{
+                      padding: "20px 24px",
+                      borderBottom: `1px solid ${T.border}`,
+                    }}
+                  >
+                    <h3 style={{ margin: 0, color: T.text, fontSize: 18, fontWeight: 700 }}>
+                      Audience Insights
+                    </h3>
+                  </div>
+                  <div style={{ padding: 20 }}>
+                    <img
+                      src={content.analytics.audienceImage}
+                      alt="Audience Demographics"
+                      style={{
+                        width: "100%",
+                        height: 240,
+                        objectFit: "cover",
+                        borderRadius: 10,
+                        marginBottom: 16,
+                        border: `1px solid ${T.border}`,
+                        cursor: "pointer",
+                      }}
+                      onClick={() => setModalImage(content.analytics.audienceImage)}
+                    />
+                    <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 12 }}>
+                      <StatBox
+                        label="Female Audience"
+                        value={content.analytics.femaleAudience}
+                        color={T.primary}
+                        bg={T.chip1}
+                      />
+                      <StatBox
+                        label="Primary Age"
+                        value={content.analytics.primaryAge}
+                        color={T.accentDark}
+                        bg={T.chip2}
+                      />
+                    </div>
+                  </div>
+                </SCard>
+              </div>
+
+              {/* Top videos */}
+              <SCard>
+                <div style={{ padding: "20px 24px", borderBottom: `1px solid ${T.border}` }}>
+                  <h3 style={{ margin: 0, color: T.text, fontSize: 18, fontWeight: 700 }}>
+                    Most Viewed Content
+                  </h3>
+                </div>
+                <div
+                  style={{
+                    padding: 28,
+                    display: "grid",
+                    gridTemplateColumns: "repeat(auto-fit, minmax(180px, 1fr))",
+                    gap: 32,
+                  }}
+                >
+                  {content.analytics.topVideos.map((vid, i) => (
+                    <div
+                      key={i}
+                      className="video-card"
+                      style={{ textAlign: "center", cursor: "pointer" }}
+                      onClick={() => window.open(content.profile.tiktokUrl, "_blank")}
+                    >
+                      <div
+                        style={{
+                          position: "relative",
+                          display: "inline-block",
+                          marginBottom: 16,
+                        }}
+                      >
+                        <img
+                          src={vid.image}
+                          alt={vid.title}
+                          className="video-thumb"
+                          style={{
+                            width: 192,
+                            height: 256,
+                            objectFit: "cover",
+                            borderRadius: 12,
+                            boxShadow: "0 12px 30px rgba(0,0,0,0.12)",
+                          }}
+                        />
+                        <div
+                          style={{
+                            position: "absolute",
+                            top: 10,
+                            left: 10,
+                            padding: "4px 8px",
+                            borderRadius: 6,
+                            background: "rgba(0,0,0,0.6)",
+                            color: "#fff",
+                            fontSize: 11,
+                            fontWeight: 700,
+                          }}
+                        >
+                          #{i + 1}
+                        </div>
+                        <div
+                          style={{
+                            position: "absolute",
+                            bottom: 10,
+                            right: 10,
+                            width: 40,
+                            height: 40,
+                            borderRadius: 999,
+                            background: "rgba(0,0,0,0.6)",
+                            display: "grid",
+                            placeItems: "center",
+                          }}
+                        >
+                          <Play size={16} style={{ color: "#fff", marginLeft: 2 }} />
+                        </div>
+                      </div>
+                      <h4 style={{ margin: "0 0 8px", color: T.text, fontWeight: 700 }}>
+                        {vid.title}
+                      </h4>
+                      <div
+                        style={{
+                          display: "flex",
+                          justifyContent: "center",
+                          gap: 12,
+                          fontSize: 13,
+                          color: T.textMuted,
+                        }}
+                      >
+                        <span style={{ display: "flex", alignItems: "center", gap: 4 }}>
+                          <Eye size={13} />
+                          {vid.views}
+                        </span>
+                        <span style={{ display: "flex", alignItems: "center", gap: 4 }}>
+                          <Heart size={13} fill="currentColor" />
+                          {vid.likes}
+                        </span>
                       </div>
                     </div>
                   ))}
                 </div>
-              </CardContent>
-            </Card>
+              </SCard>
+            </section>
+          )}
+
+          {/* ── Contact section ── */}
+          <section style={{ paddingBottom: 48 }}>
+            <SCard>
+              <div
+                style={{
+                  padding: 40,
+                  textAlign: "center",
+                  background: `linear-gradient(135deg, ${T.chip1}, ${T.chip2})`,
+                }}
+              >
+                <h3
+                  style={{
+                    margin: "0 0 12px",
+                    fontSize: 28,
+                    fontWeight: 800,
+                    color: T.text,
+                  }}
+                >
+                  Ready to Collaborate?
+                </h3>
+                <p
+                  style={{
+                    margin: "0 auto 28px",
+                    color: T.textMuted,
+                    maxWidth: 560,
+                  }}
+                >
+                  Let&apos;s create amazing content together. Reach out to discuss your project and
+                  get started.
+                </p>
+                <div style={{ display: "flex", flexWrap: "wrap", gap: 12, justifyContent: "center" }}>
+                  <button
+                    onClick={copyEmail}
+                    style={{
+                      display: "inline-flex",
+                      alignItems: "center",
+                      gap: 8,
+                      padding: "12px 24px",
+                      borderRadius: 10,
+                      background: `linear-gradient(135deg, ${T.primary}, ${T.primaryDark})`,
+                      color: "#fff",
+                      border: "none",
+                      fontWeight: 700,
+                      fontSize: 14,
+                      cursor: "pointer",
+                      boxShadow: "0 6px 14px rgba(0,0,0,0.08)",
+                      fontFamily: "inherit",
+                    }}
+                  >
+                    {emailCopied ? <Check size={16} /> : <Mail size={16} />}
+                    {emailCopied ? "Email Copied!" : "Email Me"}
+                  </button>
+                  <button
+                    onClick={() => window.open(waLink, "_blank")}
+                    style={{
+                      display: "inline-flex",
+                      alignItems: "center",
+                      gap: 8,
+                      padding: "12px 24px",
+                      borderRadius: 10,
+                      background: "linear-gradient(135deg, #25d366, #128c7e)",
+                      color: "#fff",
+                      border: "none",
+                      fontWeight: 700,
+                      fontSize: 14,
+                      cursor: "pointer",
+                      boxShadow: "0 6px 14px rgba(0,0,0,0.08)",
+                      fontFamily: "inherit",
+                    }}
+                  >
+                    <WaIcon size={16} />
+                    WhatsApp
+                  </button>
+                  <button
+                    onClick={() => window.open(content.contact.instagramUrl, "_blank")}
+                    style={{
+                      display: "inline-flex",
+                      alignItems: "center",
+                      gap: 8,
+                      padding: "12px 24px",
+                      borderRadius: 10,
+                      background: `linear-gradient(135deg, ${T.primary}, ${T.accent})`,
+                      color: "#fff",
+                      border: "none",
+                      fontWeight: 700,
+                      fontSize: 14,
+                      cursor: "pointer",
+                      boxShadow: "0 6px 14px rgba(0,0,0,0.08)",
+                      fontFamily: "inherit",
+                    }}
+                  >
+                    <Instagram size={16} />
+                    DM Instagram
+                  </button>
+                </div>
+              </div>
+            </SCard>
           </section>
-        )}
 
-        {/* Contact Section */}
-        <section className="text-center">
-          <Card className="border-rose-200 bg-gradient-to-r from-rose-100 to-amber-100 shadow-lg">
-            <CardContent className="p-8">
-              <h3 className="text-2xl font-bold text-amber-800 mb-4">Ready to Collaborate?</h3>
-              <p className="text-amber-600 mb-6 max-w-2xl mx-auto">
-                Let's create amazing content together! Reach out to discuss your project and get started.
-              </p>
-              <div className="flex flex-wrap justify-center gap-4">
-                <Button
-                  onClick={copyEmail}
-                  className="bg-gradient-to-r from-rose-400 to-rose-500 hover:from-rose-500 hover:to-rose-600 text-white"
+          {/* ── TikTok embed ── */}
+          <section style={{ textAlign: "center", marginBottom: 64 }}>
+            <SCard>
+              <div
+                style={{
+                  padding: 32,
+                  background: `linear-gradient(135deg, ${T.chip1}, ${T.chip2})`,
+                }}
+              >
+                <h3
+                  style={{
+                    margin: "0 0 24px",
+                    fontSize: 22,
+                    fontWeight: 800,
+                    color: T.text,
+                  }}
                 >
-                  {emailCopied ? <Check className="w-4 h-4 mr-2" /> : <Mail className="w-4 h-4 mr-2" />}
-                  {emailCopied ? "Email Copied!" : "Email Me"}
-                </Button>
-                <Button
-                  onClick={() => window.open(waLink, "_blank")}
-                  className="bg-gradient-to-r from-amber-400 to-amber-500 hover:from-amber-500 hover:to-amber-600 text-white"
-                >
-                  <MessageCircle className="w-4 h-4 mr-2" />
-                  WhatsApp
-                </Button>
-                <Button
-                  onClick={() => window.open(content.contact.instagramUrl, "_blank")}
-                  className="bg-gradient-to-r from-rose-400 to-amber-400 hover:from-rose-500 hover:to-amber-500 text-white"
-                >
-                  <Instagram className="w-4 h-4 mr-2" />
-                  DM Instagram
-                </Button>
-              </div>
-            </CardContent>
-          </Card>
-        </section>
-
-        {/* TikTok Embed Section */}
-        <section className="text-center mb-16">
-          <Card className="border-rose-200 bg-gradient-to-r from-rose-50 to-amber-50 shadow-lg">
-            <CardContent className="p-8">
-              <h3 className="text-2xl font-bold text-amber-800 mb-6">Check Out My TikTok Content</h3>
-              <div className="flex justify-center">
-                <blockquote
-                  className="tiktok-embed"
-                  cite={`https://www.tiktok.com/@${content.contact.tiktokEmbedId}`}
-                  data-unique-id={content.contact.tiktokEmbedId}
-                  data-embed-type="creator"
-                  style={{ maxWidth: "780px", minWidth: "288px" }}
-                >
-                  <section>
-                    <a
-                      target="_blank"
-                      href={`https://www.tiktok.com/@${content.contact.tiktokEmbedId}?refer=creator_embed`}
+                  Check Out My TikTok Content
+                </h3>
+                <div style={{ display: "flex", justifyContent: "center" }}>
+                  {mounted && (
+                    <blockquote
+                      className="tiktok-embed"
+                      cite={`https://www.tiktok.com/@${content.contact.tiktokEmbedId}`}
+                      data-unique-id={content.contact.tiktokEmbedId}
+                      data-embed-type="creator"
+                      style={{ maxWidth: "780px", minWidth: "288px" }}
                     >
-                      @{content.contact.tiktokEmbedId}
-                    </a>
-                  </section>
-                </blockquote>
+                      <section>
+                        <a
+                          target="_blank"
+                          href={`https://www.tiktok.com/@${content.contact.tiktokEmbedId}?refer=creator_embed`}
+                        >
+                          @{content.contact.tiktokEmbedId}
+                        </a>
+                      </section>
+                    </blockquote>
+                  )}
+                </div>
               </div>
-            </CardContent>
-          </Card>
-        </section>
-      </main>
+            </SCard>
+          </section>
+        </main>
 
-      {/* Footer */}
-      <footer className="bg-white border-t border-rose-100 mt-16">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-          <div className="text-center">
-            <div className="flex items-center justify-center space-x-3 mb-4">
-              <div className="w-6 h-6 bg-gradient-to-r from-rose-400 to-amber-400 rounded-full flex items-center justify-center">
-                <Play className="w-3 h-3 text-white" />
+        {/* ── Footer ── */}
+        <footer
+          style={{
+            background: T.surface,
+            borderTop: `1px solid ${T.border}`,
+            padding: "32px 0",
+          }}
+        >
+          <div
+            style={{
+              maxWidth: 1120,
+              margin: "0 auto",
+              padding: "0 24px",
+              textAlign: "center",
+            }}
+          >
+            <div
+              style={{
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                gap: 10,
+                marginBottom: 16,
+              }}
+            >
+              <div
+                style={{
+                  width: 24,
+                  height: 24,
+                  borderRadius: 999,
+                  background: `linear-gradient(135deg, ${T.primary}, ${T.accentDark})`,
+                  display: "grid",
+                  placeItems: "center",
+                }}
+              >
+                <Play size={10} style={{ color: "#fff" }} />
               </div>
-              <span className="text-lg font-bold text-amber-800">{content.profile.handle}</span>
+              <span style={{ fontSize: 16, fontWeight: 800, color: T.text }}>
+                {content.profile.handle}
+              </span>
             </div>
-            <div className="pt-4 border-t border-rose-100">
-              <div className="flex flex-col md:flex-row justify-center items-center space-y-2 md:space-y-0 md:space-x-4">
-                <span className="text-amber-500 text-sm">Powered by</span>
-                <a
-                  href="https://lintasinovasiglobal.com"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center space-x-3 hover:opacity-80 transition-opacity duration-200"
-                >
-                  <img src="/logo-ligal.png" alt="PT. Lintas Inovasi Global" className="h-8 w-auto" />
-                  <span className="text-amber-600 text-sm font-semibold hover:text-rose-500 transition-colors">
-                    PT. Lintas Inovasi Global
-                  </span>
-                </a>
-              </div>
+
+            <div
+              style={{
+                paddingTop: 16,
+                borderTop: `1px solid ${T.border}`,
+                display: "flex",
+                flexWrap: "wrap",
+                justifyContent: "center",
+                alignItems: "center",
+                gap: 12,
+              }}
+            >
+              <span style={{ color: T.textMuted, fontSize: 13 }}>Powered by</span>
+              <a
+                href="https://lintasinovasiglobal.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                style={{
+                  display: "flex",
+                  alignItems: "center",
+                  gap: 8,
+                  textDecoration: "none",
+                }}
+              >
+                <img src="/logo-ligal.png" alt="" style={{ height: 24 }} />
+                <span style={{ color: T.text, fontSize: 13, fontWeight: 700 }}>
+                  PT. Lintas Inovasi Global
+                </span>
+              </a>
             </div>
-            <p className="text-amber-600 text-sm mt-4">
-              © 2024 {content.profile.handle}. All rights reserved. | Professional TikTok Content Creator
+
+            <p style={{ fontSize: 12, color: T.textMuted, marginTop: 12 }}>
+              © 2026 {content.profile.handle}. All rights reserved. | Professional TikTok Content
+              Creator
             </p>
           </div>
-        </div>
-      </footer>
+        </footer>
+      </div>
 
-      {/* Image Modal */}
+      {/* ── Update date badge — fixed top-right ── */}
+      <div
+        style={{
+          position: "fixed",
+          top: 72,
+          right: 12,
+          zIndex: 35,
+          display: "flex",
+          alignItems: "center",
+          gap: 6,
+          padding: "5px 12px 5px 9px",
+          borderRadius: 999,
+          background: "rgba(255, 245, 250, 0.72)",
+          backdropFilter: "blur(14px) saturate(180%)",
+          WebkitBackdropFilter: "blur(14px) saturate(180%)",
+          border: "1px solid rgba(249, 168, 212, 0.45)",
+          boxShadow: "0 4px 16px rgba(236, 72, 153, 0.10)",
+          pointerEvents: "none",
+          maxWidth: "calc(100vw - 24px)",
+          overflow: "hidden",
+        }}
+      >
+        <Calendar size={12} style={{ color: T.primary, flexShrink: 0 }} />
+        <span
+          style={{
+            fontSize: 11,
+            fontWeight: 600,
+            color: T.textMuted,
+            whiteSpace: "nowrap",
+            overflow: "hidden",
+            textOverflow: "ellipsis",
+          }}
+        >
+          {content.profile.updateDate}
+        </span>
+      </div>
+
+      {/* ── Floating FAB contact ── */}
+      <FloatingContact
+        waLink={waLink}
+        instagramUrl={content.contact.instagramUrl}
+      />
+
+      {/* ── Mobile bottom nav ── */}
+      <div
+        className="fixed bottom-0 left-0 right-0 md:hidden"
+        style={{
+          background: "rgba(17,5,19,0.95)",
+          backdropFilter: "blur(12px)",
+          borderTop: "1px solid rgba(255,255,255,0.1)",
+          zIndex: 48,
+        }}
+      >
+        <div style={{ display: "flex", justifyContent: "space-around", padding: "8px 0" }}>
+          {(["profile", "ratecard", "analytics"] as const).map((s) => (
+            <button
+              key={s}
+              onClick={() => setActiveSection(s)}
+              style={{
+                display: "flex",
+                flexDirection: "column",
+                alignItems: "center",
+                padding: "8px 16px",
+                borderRadius: 8,
+                border: "none",
+                background: activeSection === s ? "rgba(255,255,255,0.1)" : "transparent",
+                color: activeSection === s ? T.primary : "rgba(255,255,255,0.5)",
+                cursor: "pointer",
+                fontFamily: "inherit",
+                transition: "color 0.2s",
+              }}
+            >
+              {s === "profile" && <Users size={20} style={{ marginBottom: 2 }} />}
+              {s === "ratecard" && <Star size={20} style={{ marginBottom: 2 }} />}
+              {s === "analytics" && <TrendingUp size={20} style={{ marginBottom: 2 }} />}
+              <span style={{ fontSize: 11, textTransform: "capitalize" }}>{s}</span>
+            </button>
+          ))}
+        </div>
+      </div>
+
+      {/* ── Image modal ── */}
       {modalImage && (
         <div
-          className="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 flex items-center justify-center p-4"
-          onClick={closeModal}
+          style={{
+            position: "fixed",
+            inset: 0,
+            background: "rgba(0,0,0,0.8)",
+            backdropFilter: "blur(6px)",
+            zIndex: 60,
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            padding: 16,
+          }}
+          onClick={() => setModalImage(null)}
         >
-          <div className="relative max-w-4xl max-h-[90vh] w-full h-full flex items-center justify-center">
+          <div
+            style={{
+              position: "relative",
+              maxWidth: "90vw",
+              maxHeight: "90vh",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+            }}
+          >
             <button
-              onClick={closeModal}
-              className="absolute top-4 right-4 z-10 bg-white/20 backdrop-blur-sm rounded-full p-2 hover:bg-white/30 transition-colors duration-200"
+              onClick={() => setModalImage(null)}
+              style={{
+                position: "absolute",
+                top: -16,
+                right: -16,
+                width: 36,
+                height: 36,
+                borderRadius: 999,
+                background: "rgba(255,255,255,0.2)",
+                border: "none",
+                color: "#fff",
+                cursor: "pointer",
+                display: "grid",
+                placeItems: "center",
+                zIndex: 1,
+              }}
             >
-              <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-              </svg>
+              <X size={18} />
             </button>
             <img
               src={modalImage}
-              alt="Zoomed view"
-              className="max-w-full max-h-full object-contain rounded-lg shadow-2xl"
+              alt=""
+              style={{
+                maxWidth: "100%",
+                maxHeight: "90vh",
+                objectFit: "contain",
+                borderRadius: 12,
+                boxShadow: "0 25px 60px rgba(0,0,0,0.5)",
+              }}
               onClick={(e) => e.stopPropagation()}
             />
           </div>
         </div>
       )}
-
-      {/* Mobile Navigation */}
-      <div className="fixed bottom-0 left-0 right-0 bg-gray-900/95 backdrop-blur-md border-t border-gray-700 md:hidden">
-        <div className="flex justify-around py-2">
-          {["profile", "ratecard", "analytics"].map((section) => (
-            <button
-              key={section}
-              onClick={() => setActiveSection(section)}
-              className={`flex flex-col items-center py-2 px-4 rounded-lg transition-colors ${
-                activeSection === section
-                  ? "text-rose-400 bg-white/10"
-                  : "text-gray-400 hover:text-gray-200"
-              }`}
-            >
-              {section === "profile" && <Users className="w-5 h-5 mb-1" />}
-              {section === "ratecard" && <Star className="w-5 h-5 mb-1" />}
-              {section === "analytics" && <TrendingUp className="w-5 h-5 mb-1" />}
-              <span className="text-xs capitalize">{section}</span>
-            </button>
-          ))}
-        </div>
-      </div>
     </div>
   );
 }
