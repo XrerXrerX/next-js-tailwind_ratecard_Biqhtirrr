@@ -223,3 +223,70 @@
     @apply bg-background text-foreground;
   }
 }
+
+/* ── FAB responsive positioning ──────────────────────────────────────────────
+   Desktop : 24 px from bottom-right (clear of everything)
+   Mobile  : lifted above the ~68 px bottom nav bar + 8 px breathing room = 80 px
+   Items expand upward from the FAB, so offset = 80 + 60 (FAB h) + 12 (gap) = 152 px
+   Hint bubble hidden on mobile (too cramped alongside the bottom nav)
+*/
+.fab-btn-pos {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  z-index: 51;
+}
+.fab-items-pos {
+  position: fixed;
+  bottom: 96px;
+  right: 24px;
+  z-index: 50;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  align-items: flex-end;
+}
+.fab-hint-pos {
+  position: fixed;
+  bottom: 96px;
+  right: 96px;
+  z-index: 49;
+}
+
+@media (max-width: 767px) {
+  .fab-btn-pos  { bottom: 80px; right: 16px; }
+  .fab-items-pos { bottom: 152px; right: 16px; }
+  .fab-hint-pos  { display: none; }
+}
+
+/* ── Header nav responsive ───────────────────────────────────────────────────*/
+.header-nav {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+}
+.header-nav-btn {
+  font-size: 14px;
+}
+.header-handle {
+  font-size: 20px;
+}
+@media (max-width: 767px) {
+  .header-nav { gap: 10px; }
+  .header-nav-btn { font-size: 11px; }
+  .header-handle { font-size: 14px; }
+}
+
+/* ── Bottom-nav safe area ─────────────────────────────────────────────────────
+   On mobile the bottom nav is fixed (~68 px tall).
+   Without extra padding the footer / last section scrolls behind it.
+   Add padding-bottom equal to nav height only when the nav is visible.
+*/
+.mobile-bottom-safe {
+  padding-bottom: 0;
+}
+@media (max-width: 767px) {
+  .mobile-bottom-safe {
+    padding-bottom: 72px;
+  }
+}

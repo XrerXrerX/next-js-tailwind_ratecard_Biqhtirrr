@@ -426,11 +426,8 @@ function FloatingContact({ waLink, instagramUrl }: { waLink: string; instagramUr
       {/* Hint bubble */}
       {!open && pulse && (
         <div
+          className="fab-hint-pos"
           style={{
-            position: "fixed",
-            bottom: 96,
-            right: 96,
-            zIndex: 49,
             background: "#fff",
             color: T.text,
             padding: "10px 14px",
@@ -462,17 +459,8 @@ function FloatingContact({ waLink, instagramUrl }: { waLink: string; instagramUr
 
       {/* Expanded contact items */}
       <div
-        style={{
-          position: "fixed",
-          bottom: 96,
-          right: 24,
-          zIndex: 50,
-          display: "flex",
-          flexDirection: "column",
-          gap: 12,
-          alignItems: "flex-end",
-          pointerEvents: open ? "auto" : "none",
-        }}
+        className="fab-items-pos"
+        style={{ pointerEvents: open ? "auto" : "none" }}
       >
         {items.map((item, i) => (
           <a
@@ -527,16 +515,13 @@ function FloatingContact({ waLink, instagramUrl }: { waLink: string; instagramUr
 
       {/* Main FAB button */}
       <button
+        className="fab-btn-pos"
         onClick={() => {
           setOpen(!open);
           setPulse(false);
         }}
         aria-label="Contact"
         style={{
-          position: "fixed",
-          bottom: 24,
-          right: 24,
-          zIndex: 51,
           width: 60,
           height: 60,
           borderRadius: 999,
@@ -844,7 +829,7 @@ export default function Home() {
     >
       <Decorations />
 
-      <div style={{ position: "relative", zIndex: 1 }}>
+      <div className="mobile-bottom-safe" style={{ position: "relative", zIndex: 1 }}>
         {/* ── Header ── */}
         <header
           style={{
@@ -895,8 +880,8 @@ export default function Home() {
                 <Play size={14} style={{ color: "#fff" }} />
               </div>
               <span
+                className="header-handle"
                 style={{
-                  fontSize: 20,
                   fontWeight: 800,
                   color: T.text,
                   textShadow: scrolled ? "0 1px 4px rgba(255,255,255,0.6)" : "none",
@@ -907,16 +892,15 @@ export default function Home() {
               </span>
             </div>
 
-            {/* Desktop nav */}
-            <nav className="hidden md:flex" style={{ gap: 32, display: "flex" }}>
+            {/* Nav */}
+            <nav className="header-nav">
               {["profile", "ratecard", "analytics"].map((s) => (
                 <button
                   key={s}
-                  className="nav-item"
+                  className="nav-item header-nav-btn"
                   onClick={() => setActiveSection(s)}
                   style={{
                     fontWeight: 600,
-                    fontSize: 14,
                     textTransform: "capitalize",
                     color: activeSection === s ? T.primary : T.textMuted,
                     borderBottom:
