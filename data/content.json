@@ -3,10 +3,10 @@
     "handle": "@biqhtirrr",
     "name": "Andien",
     "tagline": "TikTok Content Creator & Lifestyle Influencer",
-    "followers": "217.4K",
+    "followers": "222.1K",
     "tiktokUrl": "https://www.tiktok.com/@biqhtirrr?is_from_webapp=1&sender_device=pc",
-    "updateDate": "update 2 january 2026 (recap 28 days ago)",
-    "aboutText1": "Hi, I'm Andien — a TikTok content creator with over 217.4K followers and 11.6M total likes. I help brands build stronger visibility, credibility, and audience trust through authentic, high-engagement content.",
+    "updateDate": "update 5 April 2026 (recap 28 days ago)",
+    "aboutText1": "Hi, I'm Andien — a TikTok content creator with over 223,3K followers and 11.6M total likes. I help brands build stronger visibility, credibility, and audience trust through authentic, high-engagement content.",
     "aboutText2": "By collaborating with me, your brand doesn't just get exposure, it gains meaningful connections with a loyal audience that actively engages, remembers, and converts.",
     "highlights": [
       "Focused on Beauty & Lifestyle storytelling that feels natural and trusted",
@@ -16,18 +16,18 @@
   },
   "demographics": {
     "gender": {
-      "female": 72,
-      "male": 15,
-      "others": 13
+      "female": 82,
+      "male": 16,
+      "others": 2
     },
     "age": {
-      "18-24": 44.9,
-      "25-34": 39.7,
-      "36-55+": 15.4
+      "18-24": 43.9,
+      "25-34": 40.9,
+      "36-55+": 17.2
     },
     "location": {
-      "indonesia": 96.9,
-      "others": 3.1
+      "indonesia": 95.6,
+      "others": 4.6
     }
   },
   "packages": [
@@ -35,7 +35,7 @@
       "id": "single",
       "name": "Single Video",
       "subtitle": "Perfect for your brand 🚀",
-      "price": "Rp 2.650.000",
+      "price": "Rp 2.250.000",
       "priceNote": "per video content",
       "save": "",
       "color": "rose",
@@ -51,7 +51,7 @@
       "id": "triple",
       "name": "Triple Video Package",
       "subtitle": "Best value for campaign series",
-      "price": "Rp 7.400.000",
+      "price": "Rp 6.950.000",
       "priceNote": "3 video contents",
       "save": "Save Rp 550.000!",
       "color": "amber",
@@ -67,7 +67,7 @@
       "id": "fifth",
       "name": "Fifth Video Package",
       "subtitle": "Best value for raising your brand awareness",
-      "price": "Rp 11.500.000",
+      "price": "Rp 9.500.000",
       "priceNote": "5 video contents",
       "save": "Save Rp 1.750.000!",
       "color": "purple",
@@ -92,8 +92,8 @@
     }
   ],
   "analytics": {
-    "overviewImage": "/2-jan/ov_2jan.png",
-    "audienceImage": "/2-jan/vi_2jan.png",
+    "overviewImage": "/uploads/ov_2jan.png",
+    "audienceImage": "/uploads/vi_2jan.png",
     "monthlyViews": "1M++",
     "monthlyLikes": "500K++",
     "femaleAudience": "72%",
