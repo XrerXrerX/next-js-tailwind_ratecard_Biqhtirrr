@@ -106,7 +106,7 @@ export default function RootLayout({
                 description:
                   "Paket kolaborasi brand untuk TikTok content: Single Video, Triple Video, Fifth Video, dan Custom Package.",
                 priceCurrency: "IDR",
-                price: "2650000",
+                price: "2250000",
                 url: "https://biqhtirrr.com",
               },
             }),

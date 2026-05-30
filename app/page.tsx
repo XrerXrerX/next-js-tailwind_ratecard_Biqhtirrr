@@ -779,7 +779,7 @@ export default function Home() {
 
   useEffect(() => {
     setMounted(true);
-    fetch("/api/content")
+    fetch("/api/content", { cache: "no-store" })
       .then((r) => r.json())
       .then((data: SiteContent) => setContent(data))
       .catch(() => {});
