@@ -7,9 +7,9 @@ import { Plus_Jakarta_Sans } from "next/font/google";
 const plusJakartaSans = Plus_Jakarta_Sans({ subsets: ["latin"], weight: ["400", "500", "600", "700", "800"] });
 
 export const metadata: Metadata = {
-  title: "Biqhtirrr – TikTok Influencer & KOL Ratecard | Brand Collaboration Indonesia",
+  title: "andienads_real – TikTok Influencer & KOL Ratecard | Brand Collaboration Indonesia",
   description:
-    "Andien (@biqhtirrr) adalah TikTok KOL & beauty lifestyle influencer Indonesia dengan 217K+ followers dan 11.6M likes. Lihat ratecard, paket kolaborasi brand, dan statistik audiens untuk kemitraan influencer marketing.",
+    "Andien (@andienads_real) adalah TikTok KOL & beauty lifestyle influencer Indonesia dengan 223K+ followers dan 11.6M likes. Lihat ratecard, paket kolaborasi brand, dan statistik audiens untuk kemitraan influencer marketing.",
   keywords: [
     "influencer ratecard",
     "KOL Indonesia",
@@ -27,8 +27,8 @@ export const metadata: Metadata = {
     "ratecard influencer 2025",
     "KOL brand partnership",
   ],
-  authors: [{ name: "Andien", url: "https://www.tiktok.com/@biqhtirrr" }],
-  creator: "Andien (@biqhtirrr)",
+  authors: [{ name: "Andien", url: "https://www.tiktok.com/@andienads_real" }],
+  creator: "Andien (@andienads_real)",
   metadataBase: new URL("https://biqhtirrr.com"),
   alternates: {
     canonical: "/",
@@ -38,25 +38,25 @@ export const metadata: Metadata = {
     locale: "id_ID",
     url: "https://biqhtirrr.com",
     siteName: "Biqhtirrr – KOL Ratecard",
-    title: "Biqhtirrr – TikTok KOL & Brand Collaboration Ratecard Indonesia",
+    title: "andienads_real – TikTok KOL & Brand Collaboration Ratecard Indonesia",
     description:
-      "Kolaborasi brand bersama Andien (@biqhtirrr), TikTok KOL beauty & lifestyle Indonesia. 217K followers, 11.6M likes, audiens 96.9% Indonesia. Cek ratecard & paket endorsement.",
+      "Kolaborasi brand bersama Andien (@andienads_real), TikTok KOL beauty & lifestyle Indonesia. 217K followers, 11.6M likes, audiens 96.9% Indonesia. Cek ratecard & paket endorsement.",
     images: [
       {
         url: "/image.jpg",
         width: 800,
         height: 800,
-        alt: "Andien @biqhtirrr – TikTok KOL Beauty Lifestyle Indonesia",
+        alt: "Andien @andienads_real – TikTok KOL Beauty Lifestyle Indonesia",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Biqhtirrr – TikTok KOL Ratecard | Brand Collaboration Indonesia",
+    title: "andienads_real – TikTok KOL Ratecard | Brand Collaboration Indonesia",
     description:
-      "Andien (@biqhtirrr) TikTok KOL beauty & lifestyle – 217K followers, 11.6M likes. Tersedia paket kolaborasi brand mulai Rp 2.650.000.",
+      "Andien (@andienads_real) TikTok KOL beauty & lifestyle – 217K followers, 11.6M likes. Tersedia paket kolaborasi brand mulai Rp 2.650.000.",
     images: ["/image.jpg"],
-    creator: "@biqhtirrr",
+    creator: "@andienads_real",
   },
   robots: {
     index: true,
@@ -85,13 +85,13 @@ export default function RootLayout({
               "@context": "https://schema.org",
               "@type": "Person",
               name: "Andien",
-              alternateName: "@biqhtirrr",
+              alternateName: "@andienads_real",
               description:
                 "TikTok KOL & Content Creator spesialis Beauty dan Lifestyle di Indonesia dengan 217K+ followers.",
               url: "https://biqhtirrr.com",
               image: "https://biqhtirrr.com/image.jpg",
               sameAs: [
-                "https://www.tiktok.com/@biqhtirrr",
+                "https://www.tiktok.com/@andienads_real",
                 "https://www.instagram.com/andienads",
               ],
               jobTitle: "TikTok KOL & Content Creator",
