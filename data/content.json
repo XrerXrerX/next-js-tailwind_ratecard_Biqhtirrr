@@ -5,7 +5,7 @@
     "tagline": "TikTok Content Creator & Lifestyle Influencer",
     "followers": "222.1K",
     "tiktokUrl": "https://www.tiktok.com/@biqhtirrr?is_from_webapp=1&sender_device=pc",
-    "updateDate": "update 5 April 2026 (recap 28 days ago)",
+    "updateDate": "update 30 May 2026 (recap 28 days ago)",
     "aboutText1": "Hi, I'm Andien — a TikTok content creator with over 222,1K followers and 12,5M total likes. I help brands build stronger visibility, credibility, and audience trust through authentic, high-engagement content.",
     "aboutText2": "By collaborating with me, your brand doesn't just get exposure, it gains meaningful connections with a loyal audience that actively engages, remembers, and converts.",
     "highlights": [
@@ -16,18 +16,18 @@
   },
   "demographics": {
     "gender": {
-      "female": 82,
-      "male": 16,
-      "others": 2
+      "female": 81,
+      "male": 18,
+      "others": 1
     },
     "age": {
-      "18-24": 43.9,
-      "25-34": 40.9,
-      "36-55+": 17.2
+      "18-24": 41.7,
+      "25-34": 45,
+      "36-55+": 13.3
     },
     "location": {
-      "indonesia": 95.6,
-      "others": 4.6
+      "indonesia": 96,
+      "others": 4
     }
   },
   "packages": [
@@ -35,7 +35,7 @@
       "id": "single",
       "name": "Single Video",
       "subtitle": "Perfect for your brand 🚀",
-      "price": "Rp 2.250.000",
+      "price": "Rp 2.050.000",
       "priceNote": "per video content",
       "save": "",
       "color": "rose",
@@ -51,7 +51,7 @@
       "id": "triple",
       "name": "Triple Video Package",
       "subtitle": "Best value for campaign series",
-      "price": "Rp 6.950.000",
+      "price": "Rp 4.600.000",
       "priceNote": "3 video contents",
       "save": "Save Rp 550.000!",
       "color": "amber",
@@ -92,11 +92,11 @@
     }
   ],
   "analytics": {
-    "overviewImage": "/uploads/ov_2jan.png",
-    "audienceImage": "/uploads/vi_2jan.png",
+    "overviewImage": "/uploads/30may26.png",
+    "audienceImage": "/uploads/30may26audeince.png",
     "monthlyViews": "1M++",
-    "monthlyLikes": "500K++",
-    "femaleAudience": "72%",
+    "monthlyLikes": "110K++",
+    "femaleAudience": "80%",
     "primaryAge": "18-24",
     "topVideos": [
       {
