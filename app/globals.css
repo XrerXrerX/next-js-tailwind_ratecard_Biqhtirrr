@@ -290,3 +290,31 @@
     padding-bottom: 72px;
   }
 }
+
+/* ── /ratecard mobile adjustments ─────────────────────────────────────────────
+   These override the inline desktop styles on small screens (hence !important).
+*/
+@media (max-width: 767px) {
+  /* tighter page gutters */
+  .ratecard-main { padding: 0 16px !important; }
+
+  /* hero pills (Followers / Views / Engagement) */
+  .hero-chip { padding: 4px 9px !important; font-size: 11px !important; gap: 4px !important; }
+  .hero-chip svg { width: 12px !important; height: 12px !important; }
+
+  /* Rate Card packages: keep 1 column (full-width cards), tighter gap */
+  .pkg-grid { grid-template-columns: 1fr !important; gap: 16px !important; }
+
+  /* Ready to Collaborate: email / whatsapp / dm instagram in a single row */
+  .collab-card { padding: 24px 16px !important; }
+  .collab-actions { flex-wrap: nowrap !important; gap: 8px !important; }
+  .collab-btn {
+    flex: 1 1 0 !important;
+    min-width: 0 !important;
+    padding: 10px 4px !important;
+    font-size: 11px !important;
+    gap: 4px !important;
+    white-space: nowrap !important;
+  }
+  .collab-btn svg { width: 14px !important; height: 14px !important; flex-shrink: 0; }
+}

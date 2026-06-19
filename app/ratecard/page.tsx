@@ -77,6 +77,7 @@ function Chip({
 }) {
   return (
     <span
+      className="hero-chip"
       style={{
         display: "inline-flex",
         alignItems: "center",
@@ -602,7 +603,7 @@ function HighlightBullet({ text, index }: { text: string; index: number }) {
 // ─── Main page ────────────────────────────────────────────────────────────────
 
 export default function Home() {
-  const [activeSection, setActiveSection] = useState("profile");
+  const [activeSection, setActiveSection] = useState("ratecard");
   const [emailCopied, setEmailCopied] = useState(false);
   const [modalImage, setModalImage] = useState<string | null>(null);
   const content = SITE_CONTENT;
@@ -747,7 +748,7 @@ export default function Home() {
           </div>
         </header>
 
-        <main style={{ maxWidth: 1120, margin: "0 auto", padding: "0 24px" }}>
+        <main className="ratecard-main" style={{ maxWidth: 1120, margin: "0 auto", padding: "0 24px" }}>
           {/* ── Hero ── */}
           <section style={{ padding: "48px 0 8px", textAlign: "center" }}>
             {/* Avatar with orbit rings */}
@@ -869,12 +870,15 @@ export default function Home() {
 
             <h1
               style={{
-                fontSize: 56,
+                fontSize: "clamp(30px, 8.5vw, 56px)",
                 fontWeight: 800,
                 color: T.text,
                 margin: "16px 0 12px",
                 letterSpacing: "-0.02em",
                 cursor: "pointer",
+                maxWidth: "100%",
+                overflowWrap: "break-word",
+                wordBreak: "break-word",
               }}
               onClick={() => window.open(content.profile.tiktokUrl, "_blank")}
             >
@@ -1038,6 +1042,7 @@ export default function Home() {
               </div>
 
               <div
+                className="pkg-grid"
                 style={{
                   display: "grid",
                   gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))",
@@ -1087,6 +1092,7 @@ export default function Home() {
 
                       {/* Card header */}
                       <div
+                        className="pkg-head"
                         style={{
                           padding: "28px 24px 24px",
                           background: `linear-gradient(135deg, ${c.from}, ${c.to})`,
@@ -1101,9 +1107,10 @@ export default function Home() {
                       </div>
 
                       {/* Card body */}
-                      <div style={{ padding: 28 }}>
+                      <div className="pkg-body" style={{ padding: 28 }}>
                         <div style={{ textAlign: "center", marginBottom: 24 }}>
                           <div
+                            className="pkg-price"
                             style={{
                               fontSize: 32,
                               fontWeight: 800,
@@ -1469,6 +1476,7 @@ export default function Home() {
           <section style={{ paddingBottom: 48 }}>
             <SCard>
               <div
+                className="collab-card"
                 style={{
                   padding: 40,
                   textAlign: "center",
@@ -1495,12 +1503,14 @@ export default function Home() {
                   Let&apos;s create amazing content together. Reach out to discuss your project and
                   get started.
                 </p>
-                <div style={{ display: "flex", flexWrap: "wrap", gap: 12, justifyContent: "center" }}>
+                <div className="collab-actions" style={{ display: "flex", flexWrap: "wrap", gap: 12, justifyContent: "center" }}>
                   <button
                     onClick={copyEmail}
+                    className="collab-btn"
                     style={{
                       display: "inline-flex",
                       alignItems: "center",
+                      justifyContent: "center",
                       gap: 8,
                       padding: "12px 24px",
                       borderRadius: 10,
@@ -1519,9 +1529,11 @@ export default function Home() {
                   </button>
                   <button
                     onClick={() => window.open(waLink, "_blank")}
+                    className="collab-btn"
                     style={{
                       display: "inline-flex",
                       alignItems: "center",
+                      justifyContent: "center",
                       gap: 8,
                       padding: "12px 24px",
                       borderRadius: 10,
@@ -1540,9 +1552,11 @@ export default function Home() {
                   </button>
                   <button
                     onClick={() => window.open(content.contact.instagramUrl, "_blank")}
+                    className="collab-btn"
                     style={{
                       display: "inline-flex",
                       alignItems: "center",
+                      justifyContent: "center",
                       gap: 8,
                       padding: "12px 24px",
                       borderRadius: 10,
