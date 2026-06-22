@@ -57,7 +57,7 @@ export const SITE_CONTENT: SiteContent = {
     name: "Andien",
     tagline: "TikTok Content Creator & Lifestyle Influencer",
     followers: "223K",
-    tiktokUrl: "https://www.tiktok.com/@andienads?is_from_webapp=1&sender_device=pc",
+    tiktokUrl: "https://www.tiktok.com/@andienads_real?is_from_webapp=1&sender_device=pc",
     updateDate: "update 19 June 2026 (recap 28 days)",
     aboutText1:
       "Hi, I'm Andien , a TikTok content creator with over 223K followers and 12,7M total likes. I help brands build stronger visibility, credibility, and audience trust through authentic, high-engagement content.",
